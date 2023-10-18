@@ -9,7 +9,7 @@ import React,{useEffect,useState} from 'react';
 import {StyleSheet, Text, useColorScheme, View} from 'react-native';
 import {Colors} from 'react-native/Libraries/NewAppScreen';
 import {TW_CLIENT_ID} from '@env';
-import { nfcManager } from 'react-native-nfc-manager';
+import  nfcManager  from 'react-native-nfc-manager';
 
 const App = () => {
   return (
