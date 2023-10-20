@@ -15,7 +15,7 @@ import ConnectWithWallet from "../ConnectWithWallet";
 import { Button, SocialIcon } from "react-native-elements";
 const appId = "1047121222092614";
 
-export default function LoginScreen() {
+export default function LoginScreen({navigation}) {
   const onLoginPress = () => {};
 
   const onFbLoginPress = async () => {
@@ -52,7 +52,7 @@ export default function LoginScreen() {
             <Text
              style={{color:"black",textAlign:"center",fontWeight:"600"}} 
             >Connect Your Wallet Here !</Text>
-            <ConnectWithWallet/>
+            <ConnectWithWallet />
           
         </View>
         

@@ -4,6 +4,7 @@ import {
     metamaskWallet,
     rainbowWallet,
     ThirdwebProvider,
+    useUser
   } from '@thirdweb-dev/react-native';
   import React,{useEffect,useState} from 'react';
   import {StyleSheet, Text, useColorScheme, View} from 'react-native';
@@ -13,18 +14,19 @@ import {
   import { NavigationContainer } from '@react-navigation/native';
   import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-  const ConnectWithWallet = () => {
+  const ConnectWithWallet = ({navigation}:{navigation:any}) => {
     return (
         <ThirdwebProvider
         activeChain="mumbai"
         clientId={TW_CLIENT_ID} // uncomment this line after you set your clientId in the .env file
         supportedWallets={[metamaskWallet(), rainbowWallet(), localWallet()]}>
-        <AppInner />
+        <AppInner navigation={navigation} />
       </ThirdwebProvider>
     );
   };
 
-  const AppInner = () => {
+  const AppInner = ({navigation}:{navigation:any}) => {
+
     const isDarkMode = useColorScheme() === 'dark';
   
     const textStyles = {
@@ -32,7 +34,14 @@ import {
       ...styles.heading,
     };
   
-  
+    const { user, isLoggedIn, isLoading } = useUser();
+
+    useEffect(()=>{
+      if(isLoggedIn)
+      {
+         navigation.navigate("HomePage")
+      }
+    },[user])
   
     const [hasNfc,setHasNFC] = useState<any>(true);
     useEffect(()=>{
@@ -49,7 +58,7 @@ import {
     },[])
         return (
               <View style={styles.view}>
-        <ConnectWallet />
+        <ConnectWallet  />
         <Text
                style={{color:"red",margin:20}}
               >{hasNfc?"Hello NFC":"Your Device Dosent Support NFC"}</Text>

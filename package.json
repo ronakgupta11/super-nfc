@@ -16,6 +16,7 @@
     "@rneui/base": "^0.0.0-edge.2",
     "@rneui/themed": "^0.0.0-edge.2",
     "@superfluid-finance/sdk-core": "^0.6.10",
+    "@thirdweb-dev/auth": "^4.0.7",
     "@thirdweb-dev/react-native": "^0.2",
     "@thirdweb-dev/react-native-compat": "^0.2",
     "ethers": "^5",
