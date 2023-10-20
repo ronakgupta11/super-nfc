@@ -10,6 +10,7 @@
     "test": "jest"
   },
   "dependencies": {
+    "@gooddollar/web3sdk-v2": "^0.2.2",
     "@react-native-async-storage/async-storage": "^1.18.1",
     "@react-navigation/native": "^6.1.8",
     "@react-navigation/native-stack": "^6.9.14",
