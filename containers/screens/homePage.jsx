@@ -14,7 +14,7 @@ const HomePage = ({route,navigation}) => {
     
   return (
     <View>
-        {/* <ConnectWithWallet navigation={navigation} isHome={true}/> */}
+        <ConnectWithWallet navigation={navigation} isHome={true}/>
         <CreateStream addRe = {route.params? `${route.params?.address}` : ""}/>
     </View>
   )

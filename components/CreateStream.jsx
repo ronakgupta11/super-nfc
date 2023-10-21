@@ -1,13 +1,56 @@
-import React,{useState} from 'react';
+import React,{useState,useEffect} from 'react';
 import {View, Form, Button,Image,TextInput} from 'react-native';
 import {Text} from 'react-native-elements';
 import {Card, Input, Box} from '@rneui/themed';
+import { Framework } from '@superfluid-finance/sdk-core'
+import { ethers } from 'ethers'
+
+
 
 const CreateStream = ({addRe}) => {
+  // const provider = useEthersProvider({chainId:42220})
+  const [loading,setLoading] = useState(false)
+
+
+  useEffect(()=>{
+    setLoading(true)
+
+    
+    async function init(){
+    const providerJ = new ethers.providers.JsonRpcProvider("https://forno.celo.org")
+    console.log("providerJ",providerJ)
+
+
+    const sf = await Framework.create({
+      chainId: 42220, //your chainId here
+      provider:providerJ,
+    });
+    // console.log("sf",sf)
+    const G$ = await sf.loadSuperToken("0x7a5f9c3e43aadc62647ab5d41802db33dc7d8c4b");
+    // let res = await G$.getFlow({
+    //   sender: address,
+    //   receiver: reciever ,
+    //   providerOrSigner: provider
+    // });
+
+    // console.log(res);
+    // return res
+    console.log("G",G$)
+  }
+  init().then(v=>{
+    setLoading(false)
+    // console.log("res",v)
+
+
+  }).catch(e=>
+      {setLoading(false)
+        console.log(e)})
+  },[])
+
   
   const add =  addRe
 
-  console.log(add)
+  // console.log(add)
      const [address,setAddress]=useState(add)
     const [streamRate,setStreamRate]=useState()
 
