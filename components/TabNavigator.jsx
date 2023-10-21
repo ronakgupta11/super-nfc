@@ -1,6 +1,6 @@
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import OngoingStreams from '../containers/screens/OngoingStreams';
-import HomePage from '../containers/screens/HomePage';
+import HomePage from '../containers/screens/homePage ';
 const Tab = createMaterialTopTabNavigator();
 
  export default function MyTabs() {
