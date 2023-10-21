@@ -1,6 +1,6 @@
 
 import React,{useEffect,useState} from 'react';
-import {StyleSheet, Text, useColorScheme, View} from 'react-native';
+import {StyleSheet, Text, useColorScheme, View,ActivityIndicator} from 'react-native';
 import {Colors} from 'react-native/Libraries/NewAppScreen';
 import {TW_CLIENT_ID} from '@env';
 import  nfcManager  from 'react-native-nfc-manager';
@@ -13,9 +13,15 @@ import TabNavigator from './components/TabNavigator'
 import { NativeBaseProvider, Box } from "native-base";
 const App = () => {
   const Stack = createNativeStackNavigator();
+  const linking = {
+    prefixes:['http://']
+  };
   return (
     
-    <NavigationContainer>
+    <NavigationContainer
+     linking={linking}
+     fallback={<ActivityIndicator color={"blue"}/>}
+    >
       
       <Stack.Navigator initialRouteName="LoginScreen">
       <Stack.Screen name="Login"  component={LoginScreen}

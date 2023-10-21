@@ -61,7 +61,7 @@ import {
               <View style={styles.view}>
         <ConnectWallet />
         <Text
-               style={{color:"red",margin:20}}
+               style={{color:"red",margin:10}}
               >{hasNfc?"Hello NFC":"Your Device Dosent Support NFC"}</Text>
       </View> 
           )
@@ -75,7 +75,7 @@ import {
       justifyContent: 'center',
       alignItems: 'center',
       alignContent: 'center',
-      marginTop:30
+      marginTop:15
     },
     heading: {
       fontSize: 24,

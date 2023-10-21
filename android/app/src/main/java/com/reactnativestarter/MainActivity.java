@@ -1,6 +1,6 @@
 package com.reactnativestarter;
 import expo.modules.ReactActivityDelegateWrapper;
-import android.os.Bundle;
+
 import com.facebook.react.ReactActivity;
 import com.facebook.react.ReactActivityDelegate;
 import com.facebook.react.defaults.DefaultNewArchitectureEntryPoint;
@@ -31,8 +31,4 @@ public class MainActivity extends ReactActivity {
         DefaultNewArchitectureEntryPoint.getFabricEnabled()
         ));
   }
-  @Override
-protected void onCreate(Bundle savedInstanceState) {
-  super.onCreate(null);
-}
 }
