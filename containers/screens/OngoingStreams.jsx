@@ -13,7 +13,7 @@ const OngoingStreams = () => {
     {
         transactionTime: '15:06',
         recipentAddress: '0x236d787093A17Ded4f8706109Da3011868A2Be51',
-        streamRate: 0.009,
+        streamRate: 0.001,
       }
   ];
   return (

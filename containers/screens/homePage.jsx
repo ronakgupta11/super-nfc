@@ -10,14 +10,15 @@ import React,{useEffect,useState} from 'react';
   import ConnectWithWallet from './ConnectWithWallet';
  import CreateStream  from '../../components/CreateStream';
 const HomePage = ({route,navigation}) => {
-  console.log(route.params?.address)
     
   return (
     <View>
-        {/* <ConnectWithWallet navigation={navigation} isHome={true}/> */}
+        <Text
+        style={{textAlign:"center",marginTop:10,fontSize:35,color:"black",fontWeight:"bold"}}
+       >STREAM UP</Text>
         <CreateStream addRe = {route.params? `${route.params?.address}` : ""}/>
     </View>
   )
 }
 
-export default HomePage
+export default HomePage 
