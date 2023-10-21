@@ -1,12 +1,20 @@
-
+import {
+    useLogout
+  } from '@thirdweb-dev/react-native';
+  import {
+    useAddress
+  } from '@thirdweb-dev/react-native';
+  
 import React,{useEffect,useState} from 'react';
-  import {StyleSheet, Text, useColorScheme, View} from 'react-native';
+  import {StyleSheet, Text, useColorScheme, View,Button} from 'react-native';
   import ConnectWithWallet from './ConnectWithWallet';
-const HomePage = () => {
+ import CreateStream  from '../../components/CreateStream';
+const HomePage = ({navigation}) => {
+    
   return (
     <View>
-        <Text>Home Page</Text>
-        <ConnectWithWallet/>
+        <ConnectWithWallet navigation={navigation} isHome={true}/>
+        <CreateStream/>
     </View>
   )
 }

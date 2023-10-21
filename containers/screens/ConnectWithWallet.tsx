@@ -4,28 +4,27 @@ import {
     metamaskWallet,
     rainbowWallet,
     ThirdwebProvider,
-    useUser
+    useAddress
   } from '@thirdweb-dev/react-native';
   import React,{useEffect,useState} from 'react';
-  import {StyleSheet, Text, useColorScheme, View} from 'react-native';
+  import {StyleSheet, Text, useColorScheme, View,Button} from 'react-native';
   import {Colors} from 'react-native/Libraries/NewAppScreen';
   import {TW_CLIENT_ID} from '@env';
   import  nfcManager  from 'react-native-nfc-manager';
-  import { NavigationContainer } from '@react-navigation/native';
-  import { createNativeStackNavigator } from '@react-navigation/native-stack';
+  
 
-  const ConnectWithWallet = ({navigation}:{navigation:any}) => {
+  const ConnectWithWallet = ({navigation,isHome}:{navigation:any,isHome:any}) => {
     return (
         <ThirdwebProvider
         activeChain="mumbai"
         clientId={TW_CLIENT_ID} // uncomment this line after you set your clientId in the .env file
         supportedWallets={[metamaskWallet(), rainbowWallet(), localWallet()]}>
-        <AppInner navigation={navigation} />
+        <AppInner navigation={navigation} isHome={isHome} />
       </ThirdwebProvider>
     );
   };
 
-  const AppInner = ({navigation}:{navigation:any}) => {
+  const AppInner = ({navigation,isHome}:{navigation:any,isHome:any}) => {
 
     const isDarkMode = useColorScheme() === 'dark';
   
@@ -34,14 +33,16 @@ import {
       ...styles.heading,
     };
   
-    const { user, isLoggedIn, isLoading } = useUser();
+    const address = useAddress();
 
     useEffect(()=>{
-      if(isLoggedIn)
+      if(address && !isHome)
       {
-         navigation.navigate("HomePage")
+        console.log(address)
+         navigation.replace("Home")
       }
-    },[user])
+      
+    },[address])
   
     const [hasNfc,setHasNFC] = useState<any>(true);
     useEffect(()=>{
@@ -58,7 +59,7 @@ import {
     },[])
         return (
               <View style={styles.view}>
-        <ConnectWallet  />
+        <ConnectWallet />
         <Text
                style={{color:"red",margin:20}}
               >{hasNfc?"Hello NFC":"Your Device Dosent Support NFC"}</Text>
@@ -74,7 +75,7 @@ import {
       justifyContent: 'center',
       alignItems: 'center',
       alignContent: 'center',
-      margin:30
+      marginTop:30
     },
     heading: {
       fontSize: 24,

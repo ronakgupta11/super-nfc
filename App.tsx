@@ -9,15 +9,30 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import ConnectWithWallet from './containers/screens/ConnectWithWallet'
 import LoginScreen from './containers/screens/login/login';
 import HomePage from './containers/screens/HomePage';
+import TabNavigator from './components/TabNavigator'
+import { NativeBaseProvider, Box } from "native-base";
 const App = () => {
   const Stack = createNativeStackNavigator();
   return (
+    
     <NavigationContainer>
+      
       <Stack.Navigator initialRouteName="LoginScreen">
-      <Stack.Screen name=" "  component={LoginScreen} />
-      {/* <Stack.Screen name=" " component={HomePage} /> */}
+      <Stack.Screen name="Login"  component={LoginScreen}
+       options={{
+        headerShown: false,
+      }}
+      />
+      <Stack.Screen name="Home" component={TabNavigator} 
+        options={{
+          headerShown: false,
+        }}
+      />
       </Stack.Navigator>
+      
     </NavigationContainer>
+    
+    
   );
 };
 
