@@ -137,7 +137,6 @@ const CreateStream = ({addRe}) => {
        disabled={!streamRate}
       />
       </Card>
-      <Text>{address}</Text>
       
     </View>
   );

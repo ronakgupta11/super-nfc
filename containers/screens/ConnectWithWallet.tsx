@@ -13,18 +13,14 @@ import {
   import  nfcManager  from 'react-native-nfc-manager';
   
 
-  const ConnectWithWallet = ({navigation,isHome}:{navigation:any,isHome:any}) => {
+  const ConnectWithWallet = () => {
     return (
-        <ThirdwebProvider
-        activeChain="mumbai"
-        clientId={TW_CLIENT_ID} // uncomment this line after you set your clientId in the .env file
-        supportedWallets={[metamaskWallet(), rainbowWallet(), localWallet()]}>
-        <AppInner navigation={navigation} isHome={isHome} />
-      </ThirdwebProvider>
+        
+        <AppInner  />
     );
   };
 
-  const AppInner = ({navigation,isHome}:{navigation:any,isHome:any}) => {
+  const AppInner = () => {
 
     const isDarkMode = useColorScheme() === 'dark';
   
@@ -33,16 +29,6 @@ import {
       ...styles.heading,
     };
   
-    const address = useAddress();
-
-    useEffect(()=>{
-      if(address && !isHome)
-      {
-        console.log(address)
-         navigation.replace("Home")
-      }
-      
-    },[address])
   
     const [hasNfc,setHasNFC] = useState<any>(true);
     useEffect(()=>{
@@ -61,7 +47,7 @@ import {
               <View style={styles.view}>
         <ConnectWallet />
         <Text
-               style={{color:"red",margin:20}}
+               style={{color:"red",margin:10}}
               >{hasNfc?"Hello NFC":"Your Device Dosent Support NFC"}</Text>
       </View> 
           )
@@ -75,7 +61,7 @@ import {
       justifyContent: 'center',
       alignItems: 'center',
       alignContent: 'center',
-      marginTop:30
+      marginTop:15
     },
     heading: {
       fontSize: 24,

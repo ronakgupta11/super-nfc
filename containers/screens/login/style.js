@@ -4,10 +4,13 @@ const { StyleSheet } = React;
 
 const styles = StyleSheet.create({
   containerView: {
-    alignItems: "center"
+    alignItems: "center",
+    backgroundColor:"white",
+    height:"100%"
   },
   loginScreenContainer: {
     flex: 1,
+    backgroundColor:"white"
   },
   logoText: {
     fontSize: 40,
