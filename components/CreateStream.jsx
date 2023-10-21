@@ -3,8 +3,12 @@ import {View, Form, Button,Image,TextInput} from 'react-native';
 import {Text} from 'react-native-elements';
 import {Card, Input, Box} from '@rneui/themed';
 
-const CreateStream = () => {
-    const [address,setAddress]=useState()
+const CreateStream = ({addRe}) => {
+  
+  const add =  addRe
+
+  console.log(add)
+     const [address,setAddress]=useState(add)
     const [streamRate,setStreamRate]=useState()
 
     const handleSendStream = ()=>{
