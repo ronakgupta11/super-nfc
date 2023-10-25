@@ -4,18 +4,19 @@ import {
     metamaskWallet,
     rainbowWallet,
     ThirdwebProvider,
-    useAddress
+    useAddress,
+    darkTheme
   } from '@thirdweb-dev/react-native';
   import React,{useEffect,useState} from 'react';
   import {StyleSheet, Text, useColorScheme, View,Button} from 'react-native';
   import {Colors} from 'react-native/Libraries/NewAppScreen';
   import {TW_CLIENT_ID} from '@env';
   import  nfcManager  from 'react-native-nfc-manager';
+import { colors } from 'react-native-elements';
   
 
   const ConnectWithWallet = () => {
     return (
-        
         <AppInner  />
     );
   };
@@ -29,7 +30,10 @@ import {
       ...styles.heading,
     };
   
-  
+    const customDarkTheme:any = darkTheme({
+        buttonBackgroundColor:"black",
+        buttonTextColor:"white"
+    });
     const [hasNfc,setHasNFC] = useState<any>(true);
     useEffect(()=>{
         async function checkNFC(){
@@ -45,7 +49,7 @@ import {
     },[])
         return (
               <View style={styles.view}>
-        <ConnectWallet />
+        <ConnectWallet theme={customDarkTheme} />
         <Text
                style={{color:"red",margin:10}}
               >{hasNfc?"Hello NFC":"Your Device Dosent Support NFC"}</Text>
