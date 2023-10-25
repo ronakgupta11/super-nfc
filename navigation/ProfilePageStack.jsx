@@ -8,18 +8,7 @@ const ProfilePageStack = () => {
      <Stack.Screen
       name="Profile "
       component={ProfilePage}
-      options={{
-        headerTitleAlign: 'center',
-        headerTitleStyle: {
-          color: '#2e64e5',
-          fontFamily: 'Kufam-SemiBoldItalic',
-          fontSize: 18,
-        },
-        headerStyle: {
-          shadowColor: '#fff',
-          elevation: 0,
-        },
-      }}
+
     />
     </Stack.Navigator>
   )

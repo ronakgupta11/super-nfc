@@ -1,9 +1,11 @@
 import React,{useState,useEffect} from 'react';
-import {View, Form, Button,Image,TextInput} from 'react-native';
-import {Text} from 'react-native-elements';
-import {Card, Input, Box} from '@rneui/themed';
+import {Text, Button,Card,TextInput} from 'react-native-paper';
+import {View,Image} from "react-native"
+// import {Text} from 'react-native-elements';
+// import {Card, Input, Box} from '@rneui/themed';
 import { Framework } from '@superfluid-finance/sdk-core'
 import { ethers } from 'ethers'
+
 
 
 
@@ -26,7 +28,7 @@ const CreateStream = ({addRe}) => {
       provider:providerJ,
     });
     // console.log("sf",sf)
-    const G$ = await sf.loadSuperToken("0x7a5f9c3e43aadc62647ab5d41802db33dc7d8c4b");
+    const G$ = await sf.loadSuperToken("0x62b8b11039fcfe5ab0c56e502b1c372a3d2a9c7a");
     // let res = await G$.getFlow({
     //   sender: address,
     //   receiver: reciever ,
@@ -85,7 +87,7 @@ const CreateStream = ({addRe}) => {
           }}>
           Stream
         </Text>
-        <Input
+        <TextInput
          value={address}
          onChangeText={setAddress}
         placeholder="Reciever Wallet Adress" 
@@ -125,7 +127,7 @@ const CreateStream = ({addRe}) => {
             marginTop:10
          }}
         >Flow Rate</Text>
-        <Input
+        <TextInput
          value={streamRate}
          onChangeText={setStreamRate}
         placeholder="0.0" 
@@ -137,7 +139,6 @@ const CreateStream = ({addRe}) => {
        disabled={!streamRate}
       />
       </Card>
-      
     </View>
   );
 };

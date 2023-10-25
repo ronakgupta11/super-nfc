@@ -1,11 +1,12 @@
-import { View } from 'native-base'
+
 import ConnectWithWallet from './ConnectWithWallet'
 import React from 'react'
+import { Text } from 'react-native-paper'
 
 const ProfilePage = () => {
   return (
-    
-        <ConnectWithWallet />
+    <Text> Profile </Text>
+        // <ConnectWithWallet />
     
   )
 }

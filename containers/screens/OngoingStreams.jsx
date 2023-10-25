@@ -1,8 +1,12 @@
 import React from 'react';
-import {View} from 'react-native';
-import {Text} from 'react-native-elements';
-import {Card, Input, Box} from '@rneui/themed';
+
+import {
+  Text,Card
+} from "react-native-paper"
+
+import { View } from 'react-native';
 import StreamCard from '../../components/StreamCard';
+
 const OngoingStreams = () => {
   const ongoingData = [
     {
@@ -40,7 +44,10 @@ const OngoingStreams = () => {
             )
         })}
       </Card>
+
     </View>
+      // <Example/>
+
   );
 };
 

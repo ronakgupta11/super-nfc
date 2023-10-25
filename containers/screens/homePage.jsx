@@ -1,22 +1,30 @@
-import {
-    useLogout
-  } from '@thirdweb-dev/react-native';
-  import {
-    useAddress
-  } from '@thirdweb-dev/react-native';
-  
-import React,{useEffect,useState} from 'react';
-  import {StyleSheet, Text, useColorScheme, View,Button} from 'react-native';
-  import ConnectWithWallet from './ConnectWithWallet';
+
+import React from 'react';
+  import{ Button, Text} from 'react-native-paper';
+  import { View } from 'react-native';
  import CreateStream  from '../../components/CreateStream';
+import BalanceComp from '../../components/BalanceComp';
+import HomeBanner from '../../components/homeBanner';
 const HomePage = ({route,navigation}) => {
     
   return (
     <View>
-        <Text
+
+        {/* <Text
         style={{textAlign:"center",marginTop:10,fontSize:35,color:"black",fontWeight:"bold"}}
        >STREAM UP</Text>
-        <CreateStream addRe = {route.params? `${route.params?.address}` : ""}/>
+
+        <CreateStream addRe = {route.params? `${route.params?.address}` : ""}/> */}
+<HomeBanner/>
+<View style={{
+  flexDirection:"row"
+
+}}>
+  <Button mode='contained'>Send</Button>
+  <Button mode ="contained">Recieve</Button>
+</View>
+<BalanceComp/>
+
     </View>
   )
 }
