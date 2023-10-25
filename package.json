@@ -17,8 +17,6 @@
     "@react-navigation/material-top-tabs": "^6.6.5",
     "@react-navigation/native": "^6.1.8",
     "@react-navigation/native-stack": "^6.9.14",
-    "@rneui/base": "^0.0.0-edge.2",
-    "@rneui/themed": "^0.0.0-edge.2",
     "@superfluid-finance/sdk-core": "^0.6.12",
     "@thirdweb-dev/react-native": "^0.2",
     "@thirdweb-dev/react-native-compat": "^0.2",

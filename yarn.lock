@@ -3904,35 +3904,6 @@
   dependencies:
     "@react-types/shared" "^3.21.0"
 
-"@rneui/base-edge@github:react-native-elements/react-native-elements#base":
-  version "4.0.0-rc.7"
-  resolved "git+ssh://git@github.com/react-native-elements/react-native-elements.git#d42432d9581b3c1d4a3413e2861ff8be12c700b6"
-  dependencies:
-    "@types/react-native-vector-icons" "^6.4.10"
-    color "^3.2.1"
-    deepmerge "^4.2.2"
-    hoist-non-react-statics "^3.3.2"
-    react-native-ratings "^8.1.0"
-    react-native-size-matters "^0.4.0"
-
-"@rneui/base@^0.0.0-edge.2":
-  version "0.0.0-edge.2"
-  resolved "https://registry.npmjs.org/@rneui/base/-/base-0.0.0-edge.2.tgz"
-  integrity sha512-MFyiK0Kz23v5mwOUotZdD8cudREa0t9lFwb2+6MyyG1SN2I8CUyqqsZBBwUMInXbspeOtJGtWOPv61TM/2esFQ==
-  dependencies:
-    "@rneui/base-edge" "github:react-native-elements/react-native-elements#base"
-
-"@rneui/themed-edge@github:react-native-elements/react-native-elements#themed":
-  version "4.0.0-rc.7"
-  resolved "git+ssh://git@github.com/react-native-elements/react-native-elements.git#bda83f52e80b644de8e684475a6e15fd895ab43e"
-
-"@rneui/themed@^0.0.0-edge.2":
-  version "0.0.0-edge.2"
-  resolved "https://registry.npmjs.org/@rneui/themed/-/themed-0.0.0-edge.2.tgz"
-  integrity sha512-MnsZarge+2V1//ov9jCAxkKzjS5RejZf/eRpE9tVOmvDZeEO1Q/9LIV00ZJxEHnjJHpozs5UvBkwb8KAwFL/0Q==
-  dependencies:
-    "@rneui/themed-edge" "github:react-native-elements/react-native-elements#themed"
-
 "@safe-global/safe-core-sdk-types@^1.9.1", "@safe-global/safe-core-sdk-types@^1.9.2":
   version "1.10.1"
   resolved "https://registry.npmjs.org/@safe-global/safe-core-sdk-types/-/safe-core-sdk-types-1.10.1.tgz"
@@ -4740,7 +4711,7 @@
   resolved "https://registry.npmjs.org/@types/prop-types/-/prop-types-15.7.5.tgz"
   integrity sha512-JCB8C6SnDoQf0cNycqd/35A7MjcnK+ZTqE7judS6o7utxUCg6imJg3QK2qzHKszlTjcj2cn+NwMB2i96ubpj7w==
 
-"@types/react-native-vector-icons@^6.4.10", "@types/react-native-vector-icons@^6.4.6":
+"@types/react-native-vector-icons@^6.4.6":
   version "6.4.16"
   resolved "https://registry.npmjs.org/@types/react-native-vector-icons/-/react-native-vector-icons-6.4.16.tgz"
   integrity sha512-27p1tItacE/0yYKCs+nmGxtO5hiA9nhUSg9W+ipnq9PFS1NMQ+Cjf6Y+tFQgE4u0wF412xkgA40MIGLuocgqCg==
@@ -6881,7 +6852,7 @@ color-string@^1.6.0, color-string@^1.9.0:
     color-name "^1.0.0"
     simple-swizzle "^0.2.2"
 
-color@^3.1.2, color@^3.2.1:
+color@^3.1.2:
   version "3.2.1"
   resolved "https://registry.npmjs.org/color/-/color-3.2.1.tgz"
   integrity sha512-aBl7dZI9ENN6fUGC7mWpMTPNHmWUSNan9tuWN6ahh5ZLNk9baLJOnSMlrQkHcrfFgz2/RigjUVAjdx36VcemKA==
@@ -13512,13 +13483,6 @@ react-native-randombytes@^3.6.1, "react-native-randombytes@>=2.0.0 <4.0.0":
     buffer "^4.9.1"
     sjcl "^1.0.3"
 
-react-native-ratings@^8.1.0:
-  version "8.1.0"
-  resolved "https://registry.npmjs.org/react-native-ratings/-/react-native-ratings-8.1.0.tgz"
-  integrity sha512-+QOJ4G3NjVkI1D+tk4EGx1dCvVfbD2nQdkrj9cXrcAoEiwmbep4z4bZbCKmWMpQ5h2dqbxABU8/eBnbDmvAc3g==
-  dependencies:
-    lodash "^4.17.15"
-
 react-native-ratings@8.0.4:
   version "8.0.4"
   resolved "https://registry.npmjs.org/react-native-ratings/-/react-native-ratings-8.0.4.tgz"
@@ -13548,11 +13512,6 @@ react-native-size-matters@^0.3.1:
   version "0.3.1"
   resolved "https://registry.npmjs.org/react-native-size-matters/-/react-native-size-matters-0.3.1.tgz"
   integrity sha512-mKOfBLIBFBcs9br1rlZDvxD5+mAl8Gfr5CounwJtxI6Z82rGrMO+Kgl9EIg3RMVf3G855a85YVqHJL2f5EDRlw==
-
-react-native-size-matters@^0.4.0:
-  version "0.4.2"
-  resolved "https://registry.npmjs.org/react-native-size-matters/-/react-native-size-matters-0.4.2.tgz"
-  integrity sha512-DKE3f/sdcozd24oASgkP1iGg+YU3HoajRa5k3a4wkRzpiqREq8SGX12Y5zBgAt/8IivLQoTMYkyQu1/Giuy+zQ==
 
 react-native-svg@*, react-native-svg@^13.14.0, react-native-svg@^13.9.0:
   version "13.14.0"
