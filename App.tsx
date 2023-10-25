@@ -1,4 +1,4 @@
-
+import { GestureHandlerRootView } from 'react-native-gesture-handler'
 import React from 'react';
 import {
     localWallet,
@@ -17,11 +17,11 @@ const App = () => {
     supportedChains={[Celo]}
     clientId={TW_CLIENT_ID} // uncomment this line after you set your clientId in the .env file
     supportedWallets={[metamaskWallet(), rainbowWallet(), localWallet()]}>
+      <GestureHandlerRootView style={{ flex: 1 }}>
           <PaperProvider>
             <Index/>
-
-
-   </PaperProvider>
+          </PaperProvider>
+      </GestureHandlerRootView>
     </ThirdwebProvider>
     
   );
