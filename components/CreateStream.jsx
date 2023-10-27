@@ -108,7 +108,7 @@ const CreateStream = () => {
             style={{backgroundColor:"white",margin:10}}
           />
           <Button
-            mode='contained'
+            
             style={{width:"40%",alignSelf:"center",marginTop:10,marginBottom:10}}
           mode='contained'
             
@@ -116,7 +116,7 @@ const CreateStream = () => {
             disabled={!streamRate}>Send Stream</Button>
           
         </ScrollView>
-  <BottomSheetE navigation={navigation} address={"0xD7D98e76FcD14689F05e7fc19BAC465eC0fF4161"}/>
+
 
       </KeyboardAvoidingView>
     </Card>

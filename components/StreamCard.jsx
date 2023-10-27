@@ -2,9 +2,10 @@ import { Text} from 'react-native-paper'
 import {View,Image} from "react-native"
 import React from 'react'
 import CancelStreamButton from './cancelStreamButton'
+import { useNavigation } from '@react-navigation/native'
 // import {Icon } from '@rneui/themed';
 const StreamCard = ({address,time,streamRate}) => {
-      
+  const navigation = useNavigation()
   return (
     <View style={{justifyContent:"center"}}>
        
@@ -15,13 +16,14 @@ const StreamCard = ({address,time,streamRate}) => {
       style={{width:20,height:20}}
      source={require('../assets/RightArrow.png')}/>
      <View style={{marginLeft:10}} >
-        <Text style={{color:"green",fontWeight:"bold"}}>Ongoing Stream</Text>
+        <Text style={{color:"green",fontWeight:"bold"}
+      }
+       onPress={()=>navigation.navigate("Stream Details")}
+      >Ongoing Stream</Text>
         <Text style={{color:"grey"}}>{time}</Text>
      </View>
      </View>
-    <View style={{flex:0.7,marginRight:10}}>
-    <CancelStreamButton />
-    </View>
+   
 
      
      <View style={{flexDirection:"row",flex:1.5}}>

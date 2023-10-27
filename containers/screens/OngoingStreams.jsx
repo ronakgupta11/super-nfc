@@ -1,14 +1,19 @@
-import React from 'react';
+import React, { useState,useEffect} from 'react';
 import { useTheme } from 'react-native-paper';
 import {
   Text,Card
 } from "react-native-paper"
-
+import { useNavigation } from '@react-navigation/native';
 import { View } from 'react-native';
 import StreamCard from '../../components/StreamCard';
+import { getQueryData } from '../../queries/flowcreation';
+import { useAddress } from '@thirdweb-dev/react-native';
 
 const OngoingStreams = () => {
+  const navigation = useNavigation()
   const theme=useTheme()
+  const address =useAddress()
+  const [queryData,setQueryData]=useState()
   const ongoingData = [
     {
       transactionTime: '15:05',
@@ -21,6 +26,13 @@ const OngoingStreams = () => {
         streamRate: 0.001,
       }
   ];
+  useEffect(()=>{
+    const getData=async ()=>{
+      const query=await getQueryData(address)
+      return query
+    }
+    setQueryData(getData())
+  },[])
   return (
     <View>
        <Text
