@@ -6,6 +6,8 @@ import React from 'react';
 import BalanceComp from '../../components/BalanceComp';
 import HomeBanner from '../../components/homeBanner';
 import OngoingStreams from './OngoingStreams';
+import BottomSheetE from '../../components/BottomSheet';
+import CancelStreamButton from '../../components/cancelStreamButton';
 const HomePage = ({route,navigation}) => {
     
   return (
@@ -34,6 +36,7 @@ style={{
   <ScrollView style={{marginTop:15}}>
 <OngoingStreams/>
   </ScrollView>
+  <CancelStreamButton navigation={navigation} receiver={"0xD7D98e76FcD14689F05e7fc19BAC465eC0fF4161"}/>
 
     </View>
   )

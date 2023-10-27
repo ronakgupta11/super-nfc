@@ -22,7 +22,8 @@ const Index = () => {
       screens: {
         Login:"Login",
         // myapp://home -> HomeScreen
-        Home: "stream/:address",
+        Home: "Home",
+        // stream/:address
         // myapp://details/1 -> DetailsScreen with param id: 1
       
       },
