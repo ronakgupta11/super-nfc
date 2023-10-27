@@ -9,16 +9,16 @@ import { useTheme } from 'react-native-paper'
 const BottomSheetE = ({navigation,address}) => {
   const bottomSheetModalRef = useRef(null);
   const snapPoints = useMemo(() => ["50%"], []);
-  const [amount, setAmount] = React.useState(0);
+  const [amount, setAmount] = React.useState("");
 
   const calculateFlow = (amount)=>{
-    return Number(amount * (10^18) / ((365/12) * 24 * 60 * 60))
+    return Math.floor(Number(Number(amount) * (10**18) / ((365/12) * 24 * 60 * 60)))
   }
  const theme = useTheme()
   return (
     <View>
 
-    <Button onPress={() =>  bottomSheetModalRef.current.present()}>Open</Button>
+    <Button onPress={()=>bottomSheetModalRef.current.present()}>Open</Button>
     <BottomSheetModal
     backgroundStyle={{
       backgroundColor:theme.colors.background
@@ -95,12 +95,14 @@ const BottomSheetE = ({navigation,address}) => {
       <Button style={{
         margin:4,
         width:"100%"
-      }} mode='contained' onPress={()=>navigation.navigate(
-        "confirmScreen",{
+      }} mode='contained' onPress={()=>{navigation.navigate(
+        "ConfirmStream",{
           addressReceiver:address,
           flowRate: calculateFlow(amount)
         }
-      )}>Send Stream</Button>
+      )
+      bottomSheetModalRef.current.dismiss()
+      }}>Send Stream</Button>
       </Surface>
          
      </BottomSheetModal>

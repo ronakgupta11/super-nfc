@@ -3,64 +3,22 @@ import {Text, Button, Card, TextInput, useTheme} from 'react-native-paper';
 import {View, Image, ScrollView, KeyboardAvoidingView} from 'react-native';
 // import {Text} from 'react-native-elements';
 // import {Card, Input, Box} from '@rneui/themed';
-import {Framework} from '@superfluid-finance/sdk-core';
-import {ethers} from 'ethers';
 import {useNavigation} from '@react-navigation/native';
-import {white} from 'react-native-paper/lib/typescript/styles/themes/v2/colors';
 
-const CreateStream = ({addRe}) => {
-  // const provider = useEthersProvider({chainId:42220})
-  const [loading, setLoading] = useState(false);
-  const sendStreamButtonRef = useRef();
-  const scrollRef = useRef();
-  const theme = useTheme();
+import BottomSheetE from './BottomSheet';
 
-  useEffect(() => {
-    setLoading(true);
-
-    async function init() {
-      const providerJ = new ethers.providers.JsonRpcProvider(
-        'https://forno.celo.org',
-      );
-      // console.log('providerJ', providerJ);
-
-      const sf = await Framework.create({
-        chainId: 42220, //your chainId here
-        provider: providerJ,
-      });
-      // console.log("sf",sf)
-      const G$ = await sf.loadSuperToken(
-        '0x62b8b11039fcfe5ab0c56e502b1c372a3d2a9c7a',
-      );
-      // let res = await G$.getFlow({
-      //   sender: address,
-      //   receiver: reciever ,
-      //   providerOrSigner: provider
-      // });
-
-      // console.log(res);
-      // return res
-      console.log('G', G$);
-    }
-    init()
-      .then(v => {
-        setLoading(false);
-        // console.log("res",v)
-      })
-      .catch(e => {
-        setLoading(false);
-        console.log(e);
-      });
-  }, []);
-
-  const add = addRe;
-
-  // console.log(add)
-  const [address, setAddress] = useState(add);
-  const [streamRate, setStreamRate] = useState();
+const CreateStream = () => {
+  const [address, setAddress] = useState("");
+  const [streamRate, setStreamRate] = useState("");
   const navigation = useNavigation();
+  const calculateFlow = (amount)=>{
+    return Number(Number(amount) * (10**18) / ((365/12) * 24 * 60 * 60))
+  }
   const handleSendStream = () => {
-    navigation.navigate('Confirm Stream');
+    navigation.navigate('ConfirmStream',{
+      addressReceiver:address,
+      flowRate: calculateFlow(streamRate)
+    });
   };
   return (
     <Card
@@ -145,11 +103,14 @@ const CreateStream = ({addRe}) => {
             style={{}}
           />
           <Button
-            title="Send Stream"
+          mode='contained'
+            
             onPress={handleSendStream}
-            disabled={!streamRate}
-          />
+            disabled={!streamRate}>Send Stream</Button>
+          
         </ScrollView>
+  <BottomSheetE navigation={navigation} address={"0xD7D98e76FcD14689F05e7fc19BAC465eC0fF4161"}/>
+
       </KeyboardAvoidingView>
     </Card>
   );

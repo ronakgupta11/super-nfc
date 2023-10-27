@@ -5,6 +5,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 const Stack = createNativeStackNavigator();
 import OngoingStreams from '../containers/screens/OngoingStreams';
 import CreateStream from '../components/CreateStream';
+import ConfirmStream from '../containers/screens/ConfirmStream';
 const StreamPageStack = () => {
 
   const theme=useTheme()
@@ -44,6 +45,11 @@ const StreamPageStack = () => {
      <Stack.Screen
       name="Stream"
       component={CreateStream}
+
+    />
+    <Stack.Screen
+      name="ConfirmStream"
+      component={ConfirmStream}
 
     />
     </Stack.Navigator>
