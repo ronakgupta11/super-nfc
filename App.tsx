@@ -7,10 +7,7 @@ import {
     ThirdwebProvider,
 } from '@thirdweb-dev/react-native';
 import {Celo,Mumbai} from '@thirdweb-dev/chains'
-import  {
-  BottomSheetModal,
-  BottomSheetModalProvider,
-} from '@gorhom/bottom-sheet';
+import { BottomSheetModalProvider } from '@gorhom/bottom-sheet';
 import {TW_CLIENT_ID} from '@env';
 import Index from './navigation/index';
 import { PaperProvider } from 'react-native-paper';
@@ -23,10 +20,9 @@ const App = () => {
     supportedWallets={[metamaskWallet(), rainbowWallet(), localWallet()]}>
       <GestureHandlerRootView style={{ flex: 1 }}>
           <PaperProvider>
-            <BottomSheetModalProvider>
-
+           
             <Index/>
-            </BottomSheetModalProvider>
+          
           </PaperProvider>
       </GestureHandlerRootView>
     </ThirdwebProvider>

@@ -43,7 +43,6 @@ const ProfilePageStack = () => {
      <Stack.Screen
       name="Profile "
       component={ProfilePage}
-
     />
     </Stack.Navigator>
   )

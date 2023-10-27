@@ -39,7 +39,7 @@ const OngoingStreams = () => {
                 address={data.recipentAddress}
                 streamRate={data.streamRate}
               />
-              
+
             )
         })}
       </Card>

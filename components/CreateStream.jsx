@@ -1,5 +1,5 @@
 import React, {useState, useEffect, useRef} from 'react';
-import {Text, Button, Card, TextInput, useTheme} from 'react-native-paper';
+import {Text, Button, Card, TextInput, useTheme, Surface} from 'react-native-paper';
 import {View, Image, ScrollView, KeyboardAvoidingView} from 'react-native';
 // import {Text} from 'react-native-elements';
 // import {Card, Input, Box} from '@rneui/themed';
@@ -68,7 +68,9 @@ const CreateStream = ({addRe}) => {
         borderRadius: 20,
         width: '95%',
         alignSelf: 'center',
-        marginTop:20
+        marginTop:20,
+        backgroundColor:"white",
+        
       }}>
       <KeyboardAvoidingView behavior="padding">
         <ScrollView>
@@ -80,7 +82,6 @@ const CreateStream = ({addRe}) => {
               textAlign: 'center',
               padding: 10,
               borderRadius: 20,
-            
               marginTop: 0,
               marginBottom: 20,
             }}>
@@ -99,29 +100,32 @@ const CreateStream = ({addRe}) => {
             Stream
           </Text>
           <TextInput
-            
             value={address}
             onChangeText={setAddress}
             placeholder="Reciever Wallet Adress"
-            style={{marginBottom: 0}}
+            mode='outlined'
+            style={{marginBottom: 0,backgroundColor:"white",
+            margin:10
+          }}
           />
           <Text
             style={{
-              marginLeft: 10,
+              marginTop: 10,
+              marginLeft:10,
               fontSize: 20,
               fontWeight: 'bold',
             }}>
             Super Token
           </Text>
-          <Card>
-            <View style={{display: 'flex', flexDirection: 'row',}}>
+          <Card style={{margin:10}}>
+            <View style={{display: 'flex', flexDirection: 'row',backgroundColor:"white"}}>
               <Image
                 source={require('../assets/GoodDollar.png')}
                 style={{width: 30, height: 30}}
               />
               <Text
                 style={{
-                  fontSize: 20,
+                  fontSize: 19,
                   marginLeft: 20,
                 }}>
                 GoodDollar
@@ -139,16 +143,18 @@ const CreateStream = ({addRe}) => {
             Flow Rate
           </Text>
           <TextInput
+          mode='outlined'
             value={streamRate}
             onChangeText={setStreamRate}
             placeholder="0.0"
-            style={{}}
+            style={{backgroundColor:"white",margin:10}}
           />
           <Button
-            title="Send Stream"
+            mode='contained'
+            style={{width:"40%",alignSelf:"center",marginTop:10,marginBottom:10}}
             onPress={handleSendStream}
             disabled={!streamRate}
-          />
+          >Send Stream </Button>
         </ScrollView>
       </KeyboardAvoidingView>
     </Card>

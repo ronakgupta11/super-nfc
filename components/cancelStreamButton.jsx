@@ -1,18 +1,18 @@
 
 import { Button } from 'react-native-paper'
 import React,{ useState} from 'react'
+import { useNavigation } from '@react-navigation/native'
 import { Framework } from '@superfluid-finance/sdk-core'
 import { ethers } from 'ethers'
 import { useAddress ,ConnectWallet, useSDK} from "@thirdweb-dev/react-native";
 
 
 
-const CancelStreamButton = ({navigation,receiver}) => {
+const CancelStreamButton = ({receiver}) => {
 const sender = useAddress()
 const [loading,setLoading] = useState(false)
 const sdk = useSDK()
-
-
+const navigation = useNavigation()
       const handleSendStream = async()=>{
         try{
             setLoading(true)
@@ -49,11 +49,13 @@ const sdk = useSDK()
         finally{
             navigation.navigate("Home")
         }
-
       }
 if(sender){
 
-    return <Button mode='contained' onPress={()=>handleSendStream()}>{loading?"Loading...":"Cancel Stream"}</Button>
+    return <Button
+     
+     labelStyle={{width:"50%",fontSize:10,height:"auto"}}
+    mode='contained' onPress={()=>handleSendStream()}>{loading?"Loading...":"Cancel"}</Button>
 }
 else{
     return <ConnectWallet />

@@ -5,14 +5,11 @@ import { useAddress,
 import { NavigationContainer } from '@react-navigation/native';
 
 import LoginScreen from '../containers/screens/login/login';
-import HomePage from '../containers/screens/HomePage';
+
 import TabNavigator from './TabNavigator'
 const Index = () => {
 
   const address= useAddress();
-
-
-
   
   const linking = {
     // Prefixes accepted by the navigation container, should match the added schemes
