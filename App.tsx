@@ -20,8 +20,10 @@ const App = () => {
     supportedWallets={[metamaskWallet(), rainbowWallet(), localWallet()]}>
       <GestureHandlerRootView style={{ flex: 1 }}>
           <PaperProvider>
-           
+           <BottomSheetModalProvider>
+
             <Index/>
+           </BottomSheetModalProvider>
           
           </PaperProvider>
       </GestureHandlerRootView>

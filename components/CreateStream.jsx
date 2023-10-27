@@ -110,8 +110,7 @@ const CreateStream = () => {
           <Button
             mode='contained'
             style={{width:"40%",alignSelf:"center",marginTop:10,marginBottom:10}}
-          mode='contained'
-            
+
             onPress={handleSendStream}
             disabled={!streamRate}>Send Stream</Button>
           
