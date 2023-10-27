@@ -1,25 +1,50 @@
 import React from 'react'
+import { useTheme,Button } from 'react-native-paper';
+import { useDisconnect } from "@thirdweb-dev/react-native";
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 const Stack = createNativeStackNavigator();
 import OngoingStreams from '../containers/screens/OngoingStreams';
+import CreateStream from '../components/CreateStream';
 const StreamPageStack = () => {
+
+  const theme=useTheme()
+  const disconnect=useDisconnect()
   return (
-    <Stack.Navigator>
+    <Stack.Navigator
+    screenOptions={{
+      headerTitleAlign: 'left',
+
+      
+      headerRight:()=>{
+       return <Button
+       onPress={disconnect}
+        icon={"camera"}
+        size={24}
+        // color={MD3Colors.error50}
+        
+/>        
+      },
+
+      headerShadowVisible:false,
+      headerTitleStyle: {
+        color: theme.colors.onSecondaryContainer,
+        // fontFamily: theme.fonts.titleMedium,
+        fontWeight:"bold"
+        
+      },
+      title:"Stream",
+
+      headerStyle: {
+        // shadowColor: '#fff',
+        elevation: 0,
+        backgroundColor:theme.colors.secondaryContainer
+      },
+    }}
+    >
      <Stack.Screen
       name="Stream"
-      component={OngoingStreams}
-      options={{
-        headerTitleAlign: 'center',
-        headerTitleStyle: {
-          color: '#2e64e5',
-          fontFamily: 'Kufam-SemiBoldItalic',
-          fontSize: 18,
-        },
-        headerStyle: {
-          shadowColor: '#fff',
-          elevation: 0,
-        },
-      }}
+      component={CreateStream}
+
     />
     </Stack.Navigator>
   )

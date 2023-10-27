@@ -1,16 +1,17 @@
-import { View,Text,Image} from 'react-native'
-import React, { useEffect, useState } from 'react'
-import {Icon } from '@rneui/themed';
+import { Text} from 'react-native-paper'
+import {View,Image} from "react-native"
+import React from 'react'
+// import {Icon } from '@rneui/themed';
 const StreamCard = ({address,time,streamRate}) => {
       
   return (
-    <View>
+    <View style={{justifyContent:"center"}}>
         <View style={{flexDirection:"row",width:"100%",marginBottom:15,marginTop:15}}>
      <View style={{flexDirection:"row",alignItems:"center",flex:1}}>
      <Image
       style={{width:20,height:20}}
      source={require('../assets/RightArrow.png')}/>
-     <View >
+     <View style={{marginLeft:10}} >
         <Text style={{color:"green",fontWeight:"bold"}}>Ongoing Stream</Text>
         <Text style={{color:"grey"}}>{time}</Text>
      </View>
