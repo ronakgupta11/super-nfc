@@ -29,7 +29,7 @@ const OngoingStreams = () => {
   useEffect(()=>{
     const getData=async ()=>{
       const query=await getQueryData()
-      // console.log(query.flowUpdatedEvents)
+       console.log(query.flowUpdatedEvents)
       setQueryData(query.flowUpdatedEvents)
     }
     getData()
@@ -45,7 +45,7 @@ const OngoingStreams = () => {
       <Card style={{width:"95%",marginLeft:10,paddingLeft:10,
       backgroundColor:theme.colors.onBackground
     }}>
-        {queryData.map(data => {
+        {queryData?.map(data => {
             return(
                 <StreamCard
                 key={data.timestamp}
