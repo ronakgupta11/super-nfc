@@ -1,27 +1,25 @@
 
 import React from 'react';
-  import{ Button, Text} from 'react-native-paper';
-  import { View,ScrollView } from 'react-native';
- import CreateStream  from '../../components/CreateStream';
-import BalanceComp from '../../components/BalanceComp';
+  import{ Button,Surface, Text} from 'react-native-paper';
+  import { ScrollView } from 'react-native';
+
 import HomeBanner from '../../components/homeBanner';
-import OngoingStreams from './OngoingStreams';
-import BottomSheetE from '../../components/BottomSheet';
-import CancelStreamButton from '../../components/cancelStreamButton';
+import OngoingStreams from '../../components/OngoingStreams';
+
 const HomePage = ({route,navigation}) => {
     
   return (
-    <View style={{display:"flex",flexDirection:"column"}}>
+    <Surface mode = "flat" style={{flex:1}}>
 
         {/* <Text
         style={{textAlign:"center",marginTop:10,fontSize:35,color:"black",fontWeight:"bold"}}
        >STREAM UP</Text>
 
         <CreateStream addRe = {route.params? `${route.params?.address}` : ""}/> */}
-<View style={{}}>
+<Surface mode = "flat">
 <HomeBanner />
-</View>
-<View 
+</Surface>
+<Surface mode = "flat"
 style={{
   display:"flex",
   flexDirection:"row",
@@ -29,16 +27,16 @@ style={{
   justifyContent:"center",
   gap:10
 }}>
-  <Button  mode='contained'>Send</Button>
+  <Button mode='contained'>Send</Button>
   <Button mode ="contained">Recieve</Button>
 
-</View>
-  <ScrollView style={{marginTop:15}}>
+</Surface>
+  <ScrollView style={{ margin:10}}>
 <OngoingStreams/>
   </ScrollView>
-  <CancelStreamButton navigation={navigation} receiver={"0xD7D98e76FcD14689F05e7fc19BAC465eC0fF4161"}/>
+  {/* <CancelStreamButton navigation={navigation} receiver={"0xD7D98e76FcD14689F05e7fc19BAC465eC0fF4161"}/> */}
 
-    </View>
+    </Surface> 
   )
 }
 

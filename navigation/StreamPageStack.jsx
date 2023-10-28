@@ -3,9 +3,8 @@ import {useTheme, Button} from 'react-native-paper';
 import {useDisconnect} from '@thirdweb-dev/react-native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 const Stack = createNativeStackNavigator();
-import OngoingStreams from '../containers/screens/OngoingStreams';
-import CreateStream from '../components/CreateStream';
 import ConfirmStream from '../containers/screens/ConfirmStream';
+import StreamScreen from '../containers/screens/StreamScreen';
 const StreamPageStack = () => {
   const theme = useTheme();
   const disconnect = useDisconnect();
@@ -42,7 +41,7 @@ const StreamPageStack = () => {
     >
      <Stack.Screen
       name="Stream"
-      component={CreateStream}
+      component={StreamScreen}
 
     />
     <Stack.Screen

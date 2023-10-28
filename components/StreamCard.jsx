@@ -1,50 +1,45 @@
-import { Text} from 'react-native-paper'
-import {View,Image} from "react-native"
+import { Text,Surface, Divider,Icon} from 'react-native-paper'
+import {Image} from "react-native"
 import React from 'react'
-import CancelStreamButton from './cancelStreamButton'
-// import {Icon } from '@rneui/themed';
+
 const StreamCard = ({address,time,streamRate}) => {
       
   return (
-    <View style={{justifyContent:"center"}}>
+    <Surface mode="flat" style={{justifyContent:"center"}}>
        
-        <View style={{flexDirection:"row",width:"100%",marginBottom:15,marginTop:15}}>
+        <Surface mode="flat" style={{flexDirection:"row",width:"100%",marginBottom:15,marginTop:15}}>
      
-     <View style={{flexDirection:"row",alignItems:"center",flex:1.5}}>
-     <Image
-      style={{width:20,height:20}}
-     source={require('../assets/RightArrow.png')}/>
-     <View style={{marginLeft:10}} >
-        <Text style={{color:"green",fontWeight:"bold"}}>Ongoing Stream</Text>
-        <Text style={{color:"grey"}}>{time}</Text>
-     </View>
-     </View>
-    <View style={{flex:0.7,marginRight:10}}>
-    <CancelStreamButton />
-    </View>
+     <Surface mode="flat" style={{flexDirection:"row",alignItems:"center",flex:1.5}}>
+     <Icon
+     
+     source={"arrow-right-circle"}
+     size={16}/>
+     <Surface mode="flat" style={{marginLeft:10}} >
+        <Text variant='bodyLarge' style={{color:"green"}}>Ongoing Stream</Text>
+        <Text variant='bodySmall'>{time}</Text>
+     </Surface >
+     </Surface >
+    <Surface mode="flat" style={{flex:0.7,marginRight:10}}>
+    </Surface >
 
      
-     <View style={{flexDirection:"row",flex:1.5}}>
+     <Surface mode="flat" style={{flexDirection:"row",flex:1.5}}>
      
      <Image
       style={{width:30,height:30}}
      source={require('../assets/GoodDollar.png')}/>
-     <View style={{marginLeft:10}}>
-     <Text style={{color:"black",fontWeight:"bold"}}>{streamRate}</Text>
-       <Text style={{color:"grey"}}>G$/month</Text>
+     <Surface mode="flat" style={{marginLeft:10}}>
+     <Text  variant = "bodyLarge"style={{}}>{streamRate}</Text>
+       <Text variant='bodySmall' style={{}}>G$/month</Text>
        
-     </View>
+     </Surface >
       
-     </View>
-    </View>
-    <View
-  style={{
-    borderBottomColor: 'grey',
-    borderBottomWidth: 0.5,
-  }}
-/>
+     </Surface>
+    </Surface >
+    <Divider/>
     
-    </View>
+    
+    </Surface >
   )
 }
 

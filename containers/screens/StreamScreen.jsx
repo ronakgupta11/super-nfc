@@ -1,13 +1,9 @@
 import React, {useState, useEffect, useRef} from 'react';
 import {Text, Button, Card, TextInput, useTheme, Surface} from 'react-native-paper';
 import {View, Image, ScrollView, KeyboardAvoidingView} from 'react-native';
-// import {Text} from 'react-native-elements';
-// import {Card, Input, Box} from '@rneui/themed';
 import {useNavigation} from '@react-navigation/native';
-
-import BottomSheetE from './BottomSheet';
-
-const CreateStream = () => {
+// import BottomSheetE from './BottomSheet';
+const StreamScreen = () => {
   const [address, setAddress] = useState("");
   const [streamRate, setStreamRate] = useState("");
   const navigation = useNavigation();
@@ -21,27 +17,24 @@ const CreateStream = () => {
     });
   };
   return (
-    <Card
+    
+    // <ScrollView>
+    <Surface
+    mode = "flat"
       style={{
-        borderRadius: 20,
-        width: '95%',
-        alignSelf: 'center',
-        marginTop:20,
-        backgroundColor:"white",
+        flex:1,
         
+        justifyContent:"space-evenly",
+        padding:8,
       }}>
-      <KeyboardAvoidingView behavior="padding">
-        <ScrollView>
-          <Text
+        <KeyboardAvoidingView>
+
+          <Text variant='headlineMedium'
             style={{
-              fontSize: 20,
-              width: '50%',
-              alignSelf: 'center',
-              textAlign: 'center',
-              padding: 10,
-              borderRadius: 20,
-              marginTop: 0,
+              textAlign:"center",
+              marginTop:15,
               marginBottom: 20,
+              fontWeight:"bold"
             }}>
             Create Stream
           </Text>
@@ -58,11 +51,12 @@ const CreateStream = () => {
             Stream
           </Text>
           <TextInput
+          
             value={address}
             onChangeText={setAddress}
             placeholder="Reciever Wallet Adress"
             mode='outlined'
-            style={{marginBottom: 0,backgroundColor:"white",
+            style={{marginBottom: 0,
             margin:10
           }}
           />
@@ -75,10 +69,10 @@ const CreateStream = () => {
             }}>
             Super Token
           </Text>
-          <Card style={{margin:10}}>
-            <View style={{display: 'flex', flexDirection: 'row',backgroundColor:"white"}}>
+          <Surface mode='flat' style={{margin:10}}>
+            <Surface mode = "flat" style={{ flexDirection: 'row'}}>
               <Image
-                source={require('../assets/GoodDollar.png')}
+                source={require('../../assets/GoodDollar.png')}
                 style={{width: 30, height: 30}}
               />
               <Text
@@ -89,8 +83,8 @@ const CreateStream = () => {
                 GoodDollar
                 <Text style={{color: 'grey', fontSize: 15}}> G$</Text>
               </Text>
-            </View>
-          </Card>
+            </Surface>
+          </Surface>
           <Text
             style={{
               marginLeft: 10,
@@ -105,7 +99,7 @@ const CreateStream = () => {
             value={streamRate}
             onChangeText={setStreamRate}
             placeholder="0.0"
-            style={{backgroundColor:"white",margin:10}}
+            style={{margin:10}}
           />
           <Button
             mode='contained'
@@ -114,12 +108,13 @@ const CreateStream = () => {
             onPress={handleSendStream}
             disabled={!streamRate}>Send Stream</Button>
           
-        </ScrollView>
-  <BottomSheetE navigation={navigation} address={"0xD7D98e76FcD14689F05e7fc19BAC465eC0fF4161"}/>
+        {/* </ScrollView> */}
+  {/* <BottomSheetE navigation={navigation} address={"0xD7D98e76FcD14689F05e7fc19BAC465eC0fF4161"}/> */}
+  </KeyboardAvoidingView>
 
-      </KeyboardAvoidingView>
-    </Card>
+    </Surface>
+     
   );
 };
 
-export default CreateStream;
+export default StreamScreen;
