@@ -4,20 +4,22 @@ import { useTheme,Button } from 'react-native-paper';
 import { useDisconnect } from "@thirdweb-dev/react-native";
 import ProfilePage from '../containers/screens/ProfilePage'
 import StreamDetails from '../containers/screens/StreamDetails';
-const ProfilePageStack = () => {
+import QrScannerScreen from '../containers/screens/QrScannerScreen';
+const ProfilePageStack = ({navigation}) => {
   
   const Stack = createNativeStackNavigator();
   const theme=useTheme()
   const disconnect=useDisconnect()
   return (
     <Stack.Navigator
+    initialRouteName='ProfileScreen'
     screenOptions={{
       headerTitleAlign: 'left',
 
       
       headerRight:()=>{
        return <Button
-       onPress={disconnect}
+       onPress={()=>navigation.navigate("Profile",{screen:"Scanner"})}
         icon={"camera"}
         size={24}
         // color={MD3Colors.error50}
@@ -42,14 +44,18 @@ const ProfilePageStack = () => {
     }}
     >
      <Stack.Screen
-      name="Profile "
+      name="ProfileScreen"
       component={ProfilePage}
     />
 
     <Stack.Screen
-      name="Stream Details"
+      name="StreamDetails"
       
       component={StreamDetails}
+    />
+    <Stack.Screen
+      name="Scanner"
+      component={QrScannerScreen}
     />
     </Stack.Navigator>
   )

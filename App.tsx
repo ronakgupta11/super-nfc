@@ -23,12 +23,10 @@ const App = () => {
     supportedWallets={[metamaskWallet(), rainbowWallet(), localWallet()]}>
      
       <GestureHandlerRootView style={{ flex: 1 }}>
-          <PaperProvider>
-          
+          <PaperProvider>    
 
             <Index/>
-          
-          
+
           </PaperProvider>
       </GestureHandlerRootView>
     </ThirdwebProvider>

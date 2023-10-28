@@ -7,9 +7,9 @@ import { Button, Icon, MD3Colors } from 'react-native-paper';
 import { useTheme } from 'react-native-paper';
 import { View } from 'react-native';
 import StreamDetails from '../containers/screens/StreamDetails';
-const HomePageStack = ({color}) => {
+const HomePageStack = ({color,navigation}) => {
   const theme = useTheme()
-  const disconnect = useDisconnect()
+
   return (
     <Stack.Navigator
     screenOptions={{
@@ -18,7 +18,7 @@ const HomePageStack = ({color}) => {
       
       headerRight:()=>{
        return <Button
-       onPress={disconnect}
+       onPress={()=>navigation.navigate("Profile",{screen:"Scanner"})}
         icon={"camera"}
         size={24}
         // color={MD3Colors.error50}

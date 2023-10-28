@@ -5,7 +5,7 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 const Stack = createNativeStackNavigator();
 import ConfirmStream from '../containers/screens/ConfirmStream';
 import StreamScreen from '../containers/screens/StreamScreen';
-const StreamPageStack = () => {
+const StreamPageStack = ({navigation}) => {
   const theme = useTheme();
   const disconnect = useDisconnect();
   return (
@@ -16,7 +16,7 @@ const StreamPageStack = () => {
         headerRight: () => {
           return (
             <Button
-              onPress={disconnect}
+            onPress={()=>navigation.navigate("Profile",{screen:"Scanner"})}
               icon={'camera'}
               size={24}
               // color={MD3Colors.error50}
@@ -40,7 +40,7 @@ const StreamPageStack = () => {
     }}
     >
      <Stack.Screen
-      name="Stream"
+      name="StreamScreen"
       component={StreamScreen}
 
     />
