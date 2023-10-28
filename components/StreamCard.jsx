@@ -1,9 +1,11 @@
 import { Text,Surface, Divider,Icon} from 'react-native-paper'
 import {Image} from "react-native"
 import React from 'react'
-
+import CancelStreamButton from './cancelStreamButton'
+import { useNavigation } from '@react-navigation/native'
+// import {Icon } from '@rneui/themed';
 const StreamCard = ({address,time,streamRate}) => {
-      
+  const navigation = useNavigation()
   return (
     <Surface mode="flat" style={{justifyContent:"center"}}>
        

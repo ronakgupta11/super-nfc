@@ -6,6 +6,7 @@ import HomePage from '../containers/screens/HomePage';
 import { Button, Icon, MD3Colors } from 'react-native-paper';
 import { useTheme } from 'react-native-paper';
 import { View } from 'react-native';
+import StreamDetails from '../containers/screens/StreamDetails';
 const HomePageStack = ({color}) => {
   const theme = useTheme()
   const disconnect = useDisconnect()
@@ -32,8 +33,7 @@ const HomePageStack = ({color}) => {
         fontWeight:"bold"
         
       },
-      title:"Home",
-
+     
       headerStyle: {
         // shadowColor: '#fff',
         elevation: 0,
@@ -43,7 +43,11 @@ const HomePageStack = ({color}) => {
      <Stack.Screen
       name="HomePage"
       component={HomePage}
+    />
+    <Stack.Screen
+      name="Stream Details"
       
+      component={StreamDetails}
     />
     </Stack.Navigator>
   )
