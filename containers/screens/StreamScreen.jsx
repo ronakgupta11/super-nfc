@@ -1,21 +1,37 @@
-import React, {useState, useEffect, useRef} from 'react';
-import {Text, Button, Card, TextInput, useTheme, Surface} from 'react-native-paper';
+import React, { useRef,useMemo, useState,useEffect } from 'react';
+import  {
+  BottomSheetModal,
+} from '@gorhom/bottom-sheet';
+import {Text, Button,TextInput, useTheme, Surface} from 'react-native-paper';
 import {View, Image, ScrollView, KeyboardAvoidingView} from 'react-native';
-import {useNavigation} from '@react-navigation/native';
-// import BottomSheetE from './BottomSheet';
-const StreamScreen = () => {
+
+const StreamScreen = ({navigation,route}) => {
   const [address, setAddress] = useState("");
   const [streamRate, setStreamRate] = useState("");
-  const navigation = useNavigation();
-  const calculateFlow = (amount)=>{
-    return Number(Number(amount) * (10**18) / ((365/12) * 24 * 60 * 60))
-  }
+  const bottomSheetModalRef = useRef(null);
+  const snapPoints = useMemo(() => ["50%"], []);
+  const [amount, setAmount] = React.useState("");
+
+ const theme = useTheme()
+
+
+ const calculateFlow = (amount)=>{
+  return Number(Number(amount) * (10**18) / ((365/12) * 24 * 60 * 60))
+}
   const handleSendStream = () => {
     navigation.navigate('ConfirmStream',{
       addressReceiver:address,
       flowRate: calculateFlow(streamRate)
     });
   };
+
+  useEffect(()=>{
+    if(route.params?.address != undefined){
+      bottomSheetModalRef.current.present()
+      
+    }
+
+  },[route])
   return (
     
     // <ScrollView>
@@ -107,9 +123,96 @@ const StreamScreen = () => {
 
             onPress={handleSendStream}
             disabled={!streamRate}>Send Stream</Button>
+
+{ route.params?.address && <BottomSheetModal
+    backgroundStyle={{
+      backgroundColor:theme.colors.background
+    }}
+    handleIndicatorStyle={{
+      backgroundColor:theme.colors.onSurface
+    }}
+    containerStyle={{
+      backgroundColor: 'rgba(0, 0, 0, 0.5)'
+      
+    }}
+       ref={bottomSheetModalRef}
+       index={0}
+       snapPoints={snapPoints}
+       
+     >
+      <Surface mode='flat'  style={{
+        padding:4,
+        flex:1,
+        alignItems:"center",
+        justifyContent:"space-around"
+      }}>
+
+       <Surface mode='flat'style={{
+        margin:8,
+
+       }} >
+        <Text variant='bodyLarge'
+        style={{
+          margin:8
+        }}
+        >Sending stream to:</Text>
+        {/* <Divider/> */}
+        <Surface elevation={1} style={
+          {
+            backgroundColor:theme.colors.primaryContainer,
+            borderRadius:10,
+            margin:4,
+            padding: 4,
+            height: 80,
+            alignItems: 'center',
+            justifyContent: 'center',
+          }
+        }>
+
+       <Text style={{
+        margin:3,
+        fontStyle:"italic"
+
+       }}>{route.params.address}</Text>
+        </Surface>
+       </Surface>
+       <Surface  mode='flat' style={{flexDirection:'row',
+      alignItems:"center",
+      justifyContent:"space-around",
+      padding:8,
+      width:"100%"
+
+      
+      }}>
+
+       <TextInput
+      mode='outlined'
+      label="Amount"
+      value={amount}
+      style={{
+        width:"60%"
+      }}
+      onChangeText={amount => setAmount(amount)}
+      
+      />
+      <Text>/Month</Text>
+      </Surface>
+      <Button style={{
+        margin:4,
+        width:"100%"
+      }} mode='contained' onPress={()=>{navigation.navigate(
+        "ConfirmStream",{
+          addressReceiver:route.params.address,
+          flowRate: calculateFlow(amount)
+        }
+      )
+      bottomSheetModalRef.current.dismiss()
+      }}>Send Stream</Button>
+      </Surface>
+         
+     </BottomSheetModal>}
           
         {/* </ScrollView> */}
-  {/* <BottomSheetE navigation={navigation} address={"0xD7D98e76FcD14689F05e7fc19BAC465eC0fF4161"}/> */}
   </KeyboardAvoidingView>
 
     </Surface>

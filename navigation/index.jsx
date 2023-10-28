@@ -5,6 +5,7 @@ import { useAddress,
 import { NavigationContainer } from '@react-navigation/native';
 
 import LoginScreen from '../containers/screens/login/login';
+import { Text } from 'react-native-paper';
 
 import TabNavigator from './TabNavigator'
 const Index = () => {
@@ -20,17 +21,31 @@ const Index = () => {
       // should match one of the available screens
       initialRouteName: "Home",
       screens: {
-        Login:"Login",
-        // myapp://home -> HomeScreen
-        Home: "Home",
-        // stream/:address
-        // myapp://details/1 -> DetailsScreen with param id: 1
+        Home:{
+          screens:{
+            HomePage:"home/homePage"
+
+          } },
+
+        Streams:{
+          screens:{
+            StreamScreen:"stream/:address",
+            ConfirmScreen:"stream/confirm/:address/:rate"
+
+        }},
+
+        Profile:{
+          screens:{
+
+          ProfilePage:"profile/:address",
+          Scanner:"profile/scan"
+        }}
       
       },
     },
   };
   return (
-    <NavigationContainer linking={linking}>
+    <NavigationContainer linking={linking} fallback={<Text>Loading...</Text>}>
       {address?<TabNavigator/>:<LoginScreen/>}
       
     </NavigationContainer>

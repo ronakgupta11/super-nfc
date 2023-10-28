@@ -27,8 +27,8 @@ style={{
   justifyContent:"center",
   gap:10
 }}>
-  <Button mode='contained'>Send</Button>
-  <Button mode ="contained">Recieve</Button>
+  <Button onPress={()=> navigation.navigate("Streams")} mode='contained'>Send</Button>
+  <Button onPress={()=> navigation.navigate("Profile")} mode ="contained">Recieve</Button>
 
 </Surface>
   <ScrollView style={{ margin:10}}>
