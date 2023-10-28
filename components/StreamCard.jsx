@@ -18,7 +18,7 @@ const StreamCard = ({address,time,streamRate}) => {
      <View style={{marginLeft:10}} >
         <Text style={{color:"green",fontWeight:"bold"}
       }
-       onPress={()=>navigation.navigate("Stream Details")}
+       onPress={()=>navigation.navigate("Stream Details",{timeStamp:time})}
       >Ongoing Stream</Text>
         <Text style={{color:"grey"}}>{time}</Text>
      </View>

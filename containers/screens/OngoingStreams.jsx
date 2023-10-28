@@ -28,10 +28,12 @@ const OngoingStreams = () => {
   ];
   useEffect(()=>{
     const getData=async ()=>{
-      const query=await getQueryData(address)
-      return query
+      const query=await getQueryData()
+      // console.log(query.flowUpdatedEvents)
+      setQueryData(query.flowUpdatedEvents)
     }
-    setQueryData(getData())
+    getData()
+    
   },[])
   return (
     <View>
@@ -43,13 +45,14 @@ const OngoingStreams = () => {
       <Card style={{width:"95%",marginLeft:10,paddingLeft:10,
       backgroundColor:theme.colors.onBackground
     }}>
-        {ongoingData.map(data => {
+        {queryData.map(data => {
             return(
                 <StreamCard
-                key={data.transactionTime}
-                time={data.transactionTime}
-                address={data.recipentAddress}
-                streamRate={data.streamRate}
+                key={data.timestamp}
+                time={data.timestamp}
+                address={data.token}
+                streamRate={data.totalSenderFlowRate}
+                type={data.type}
               />
 
             )
