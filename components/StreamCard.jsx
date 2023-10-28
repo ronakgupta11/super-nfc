@@ -17,7 +17,7 @@ const StreamCard = ({address,time,streamRate}) => {
      source={"arrow-right-circle"}
      size={16}/>
      <Surface mode="flat" style={{marginLeft:10}} >
-        <Text variant='bodyLarge' style={{color:"green"}}>Ongoing Stream</Text>
+        <Text variant='bodyLarge' style={{color:"green"}} onPress={()=>navigation.navigate("Stream Details",{timeStamp:time})} >Ongoing Stream</Text>
         <Text variant='bodySmall'>{time}</Text>
      </Surface >
      </Surface >
