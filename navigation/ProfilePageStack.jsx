@@ -3,6 +3,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { useTheme,Button } from 'react-native-paper';
 import { useDisconnect } from "@thirdweb-dev/react-native";
 import ProfilePage from '../containers/screens/ProfilePage'
+import StreamDetails from '../containers/screens/StreamDetails';
 const ProfilePageStack = () => {
   
   const Stack = createNativeStackNavigator();
@@ -43,6 +44,12 @@ const ProfilePageStack = () => {
      <Stack.Screen
       name="Profile "
       component={ProfilePage}
+    />
+
+    <Stack.Screen
+      name="Stream Details"
+      
+      component={StreamDetails}
     />
     </Stack.Navigator>
   )
