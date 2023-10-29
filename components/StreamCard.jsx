@@ -30,7 +30,7 @@ const StreamCard = ({address, time, streamRate, type,blockNo}) => {
      color={type==0?"green":"red"}
      size={20}/>
      <Surface mode="flat" style={{marginLeft:10}} >
-        <Text variant='bodyLarge' style={{color:`${type==0?"green":theme.colors.error}`}} onPress={()=>navigation.navigate("StreamDetails",{timeStamp:time,recipentAddress:address,type:type,streamRate:StreamRateConverted})} >{StreamType[type]}</Text>
+        <Text variant='bodyLarge' style={{color:`${type==0?"green":theme.colors.error}`}} onPress={()=>navigation.navigate("StreamDetails",{timeStamp:time,recipentAddress:address,type:type,streamRate:StreamRateConverted,blockNumber:blockNo})} >{StreamType[type]}</Text>
         <Text variant='bodySmall'>{currentDate}</Text>
      </Surface >
      </Surface >
