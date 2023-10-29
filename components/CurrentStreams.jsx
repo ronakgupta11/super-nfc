@@ -7,7 +7,8 @@ import { useAddress } from '@thirdweb-dev/react-native';
 import { View } from 'react-native';
 import StreamCard from './StreamCard'
 import { getQueryData } from '../queries/flowcreation';
-const OngoingStreams = () => {
+import { OngoingStreamData } from '../queries/flowcreation';
+const CurrentStreams = () => {
   const theme=useTheme()
   const [queryData,setQueryData]=useState()
   const address =useAddress()
@@ -26,12 +27,13 @@ const OngoingStreams = () => {
   // ];
   useEffect(()=>{
     const getData=async ()=>{
-      const query=await getQueryData()
-       console.log(query.flowUpdatedEvents)
-      setQueryData(query.flowUpdatedEvents)
+      const query=await OngoingStreamData()
+       console.log(query.data)
+      setQueryData(query.streams)
+      
     }
     getData()
-    
+     
   },[])
   return (
     <Surface>
@@ -46,12 +48,11 @@ const OngoingStreams = () => {
 {queryData?.map(data => {
             return(
                 <StreamCard
-                key={data.timestamp}
-                time={data.timestamp}
-                address={data.token}
-                streamRate={data.totalSenderFlowRate}
-                type={data.type}
-                blockNo={data.stream.createdAtBlockNumber?1:0}
+                key={data.createdAtTimestamp}
+                time={data.createdAtTimestamp}
+                address={data.receiver.id}
+                streamRate={data.currentFlowRate}
+                type={data.currentFlowRate?0:1}
               />
 
             )
@@ -63,4 +64,4 @@ const OngoingStreams = () => {
   );
 };
 
-export default OngoingStreams;
+export default CurrentStreams;
