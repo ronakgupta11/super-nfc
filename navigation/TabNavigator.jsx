@@ -34,7 +34,7 @@ export default function MyTabs() {
         renderIcon={({ route, focused, color }) => {
           const { options } = descriptors[route.key];
           if (options.tabBarIcon) {
-            return options.tabBarIcon({ focused, color, size: 24 });
+            return options.tabBarIcon({ focused, color, size: 30 });
           }
 
           return null;
@@ -59,7 +59,7 @@ export default function MyTabs() {
         options={{
           tabBarLabel: 'Home',
           tabBarIcon: ({ color, size }) => {
-            return <Icon source="home" size={size} color={color} />;
+            return <Icon source="home" size={24} color={color} />;
           },
         
 
@@ -71,7 +71,7 @@ export default function MyTabs() {
         options={{
           tabBarLabel: 'Streams',
           tabBarIcon: ({ color, size }) => {
-            return <Icon source="swap-vertical" size={size} color={color} />;
+            return <Icon source="swap-vertical" size={24} color={color} />;
           },
         }}
       />
@@ -81,7 +81,7 @@ export default function MyTabs() {
         options={{
           tabBarLabel: 'Profile',
           tabBarIcon: ({ color, size }) => {
-            return <Icon source="camera" size={size} color={color} />;
+            return <Icon source="account" size={24} color={color} />;
           },
         }}
       />

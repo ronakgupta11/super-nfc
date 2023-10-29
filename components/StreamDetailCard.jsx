@@ -3,8 +3,7 @@ import { Surface,Text } from 'react-native-paper'
 import { useAddress } from '@thirdweb-dev/react-native';
 import { getQueryData } from '../queries/flowcreation';
 import { useNavigation,useRoute} from '@react-navigation/native';
-import { View,Image } from 'react-native';
-import CancelStreamButton from './cancelStreamButton';
+
 const StreamDetailCard = () => {
     const route=useRoute()
     const { timeStamp,recipentAddress} = route.params;
@@ -48,59 +47,46 @@ const StreamDetailCard = () => {
   },[])
   return (
     <Surface
-   
      mode='flat'
     >
     {
         data && 
-        <View style={{height:"100%",justifyContent:'space-evenly'}}>
-            <Text style={{textAlign:"center",fontSize:30}}>{data.type==0?"Stream Rate":"Total Amount Streamed"}</Text>
-        <View>
-        <Text style={{textAlign:"center"}}>{data.type==0?data.totalSenderFlowRate:data.totalAmountStreamedUntilTimestamp}</Text>
-    <View style={{ flexDirection: 'row',justifyContent:"center"}}>
-              <Image
-                source={require('../assets/GoodDollar.png')}
-                style={{width: 25, height: 25}}
-              />
-              <Text
-                style={{
-                  fontSize: 12,
-                  marginLeft: 20,
-                }}>
-                GoodDollar
-                <Text style={{color: 'grey', fontSize: 15}}> G$</Text>
-              </Text>
-            </View>
-        </View>
-        <View>
-            <Text>Sender : </Text>
-            <Text>{address}</Text>
-        </View>
-        <View>
-            <Text>Reciever :</Text>
-            <Text>{data.token}</Text>
-        </View>
-        <View style={{flexDirection:"row"}} >
-            <Text style={{alignSelf:"flex-start"}}>
-                Start Date :
+        <Surface mode = "flat" style={{height:"100%",justifyContent:'space-evenly'}}>
+            <Text variant='headlineMedium'  style={{textAlign:"center", color:`${data.type==0?"green":"red"}`}}>{data.type==0?"Send Stream":"Stream Cancelled"}</Text>
+        <Surface mode = "flat">
+        <Text variant='titleLarge'>{data.type==0?"Flow Rate:":"Total Amount Streamed:"}</Text>
+        <Text variant='bodyLarge' style={{textAlign:"center"}}>{data.type==0?data.totalSenderFlowRate:data.totalAmountStreamedUntilTimestamp} wei</Text>
+
+        </Surface>
+        <Surface mode = "flat">
+            <Text variant='titleLarge'>Sender : </Text>
+            <Text variant='bodyLarge'>{address}</Text>
+        </Surface>
+        <Surface mode = "flat">
+            <Text variant='titleLarge'>Reciever :</Text>
+            <Text variant='bodyLarge'>{data.token}</Text>
+        </Surface >
+        <Surface mode = "flat" style={{flexDirection:"row"}} >
+            <Text variant='titleLarge' style={{alignSelf:"flex-start"}}>
+                Start Date:
             </Text>
-            <Text style={{alignSelf:"flex-end"}}>
-                {data.timestamp}
+            <Text variant='bodyLarge' style={{alignSelf:"flex-end"}}>
+                { data.timestamp}
             </Text>
-        </View>
+        </Surface>
         {
-             <View style={{flexDirection:"row"}} >
-             <Text style={{alignSelf:"flex-start"}}>
-                 End Date :
+             <Surface mode = "flat" style={{flexDirection:"row"}} >
+             <Text variant='titleLarge' style={{alignSelf:"flex-start"}}>
+                 End Date: 
              </Text>
-             <Text style={{alignSelf:"flex-end"}}>
-                 {data.totalAmountStreamedUntilTimestamp}
+             <Text variant='bodyLarge' style={{alignSelf:"flex-end"}}>
+                 { data.totalAmountStreamedUntilTimestamp}
              </Text>
-         </View>
+         </Surface>
         }
     
        
-        </View>
+        </Surface>
     }
 
     </Surface>

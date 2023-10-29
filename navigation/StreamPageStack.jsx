@@ -17,7 +17,7 @@ const StreamPageStack = ({navigation}) => {
           return (
             <Button
             onPress={()=>navigation.navigate("Profile",{screen:"Scanner"})}
-              icon={'camera'}
+              icon={'qrcode-scan'}
               size={24}
               // color={MD3Colors.error50}
             />

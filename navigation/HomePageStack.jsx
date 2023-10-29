@@ -1,12 +1,11 @@
 import React from 'react'
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 const Stack = createNativeStackNavigator();
-import { useDisconnect } from "@thirdweb-dev/react-native";
+
 import HomePage from '../containers/screens/HomePage';
 import { Button, Icon, MD3Colors } from 'react-native-paper';
 import { useTheme } from 'react-native-paper';
-import { View } from 'react-native';
-import StreamDetails from '../containers/screens/StreamDetails';
+
 const HomePageStack = ({color,navigation}) => {
   const theme = useTheme()
 
@@ -19,9 +18,9 @@ const HomePageStack = ({color,navigation}) => {
       headerRight:()=>{
        return <Button
        onPress={()=>navigation.navigate("Profile",{screen:"Scanner"})}
-        icon={"camera"}
-        size={24}
-        // color={MD3Colors.error50}
+        icon={"qrcode-scan"}
+        size={26}
+
         
 />        
       },

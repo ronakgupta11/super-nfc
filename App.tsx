@@ -12,6 +12,7 @@ import {TW_CLIENT_ID} from '@env';
 import Index from './navigation/index';
 import { PaperProvider } from 'react-native-paper';
 
+
 const App = () => {
 
   return (
@@ -23,9 +24,12 @@ const App = () => {
     supportedWallets={[metamaskWallet(), rainbowWallet(), localWallet()]}>
      
       <GestureHandlerRootView style={{ flex: 1 }}>
-          <PaperProvider>    
+          <PaperProvider
+           >    
+<BottomSheetModalProvider>
 
             <Index/>
+</BottomSheetModalProvider>
 
           </PaperProvider>
       </GestureHandlerRootView>

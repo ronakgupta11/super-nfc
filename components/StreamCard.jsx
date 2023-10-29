@@ -6,31 +6,31 @@ import { useNavigation } from '@react-navigation/native'
 import { useTheme,MD3Colors } from 'react-native-paper'
 // import {Icon } from '@rneui/themed';
 const StreamCard = ({address,time,streamRate,type}) => {
-  const StreamType=["Stream Created","","Stream Cancelled"]
+  const StreamType=["Send Stream","","Stream Cancelled "]
   const navigation = useNavigation()
   const theme=useTheme()
   const StreamRateConverted=Math.round(((streamRate*((365/12) * 24 * 60 * 60*-1))/1e18 + Number.EPSILON) * 100) / 100
   const currentDate = new Date(time*1000).toDateString()
   return (
-    <Surface mode="flat" style={{justifyContent:"center"}}>
+    <Surface mode="flat" >
        
-        <Surface mode="flat" style={{flexDirection:"row",width:"100%",marginBottom:15,marginTop:15}}>
+        <Surface mode="flat" style={{flexDirection:"row",width:"100%",marginBottom:15,marginTop:15, alignItems:"center",justifyContent:"space-between",padding:8}}>
      
-     <Surface mode="flat" style={{flexDirection:"row",alignItems:"center",flex:1.5}}>
+     <Surface mode="flat" style={{flexDirection:"row",alignItems:"center"}}>
      <Icon
      
-     source={"arrow-right-circle"}
-     size={16}/>
+     source={type==0?"arrow-right-circle":"close-circle"}
+     color={type==0?"green":"red"}
+     size={20}/>
      <Surface mode="flat" style={{marginLeft:10}} >
-        <Text variant='bodyLarge' style={{color:`${type==0?"green":theme.colors.error}`}} onPress={()=>navigation.navigate("Stream Details",{timeStamp:time,recipentAddress:address,type:type,streamRate:StreamRateConverted})} >{StreamType[type]}</Text>
+        <Text variant='bodyLarge' style={{color:`${type==0?"green":theme.colors.error}`}} onPress={()=>navigation.navigate("StreamDetails",{timeStamp:time,recipentAddress:address,type:type,streamRate:StreamRateConverted})} >{StreamType[type]}</Text>
         <Text variant='bodySmall'>{currentDate}</Text>
      </Surface >
      </Surface >
-    <Surface mode="flat" style={{flex:0.7,marginRight:10}}>
-    </Surface >
+   
 
      
-     <Surface mode="flat" style={{flexDirection:"row",flex:1.5}}>
+     <Surface mode="flat" style={{flexDirection:"row"}}>
      
      <Image
       style={{width:30,height:30}}
