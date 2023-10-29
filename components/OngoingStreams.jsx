@@ -36,6 +36,7 @@ const OngoingStreams = () => {
                 address={data.token}
                 streamRate={data.totalSenderFlowRate}
                 type={data.type}
+                blockNo={data.stream.createdAtBlockNumber?1:0}
               />
 
             )

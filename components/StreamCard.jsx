@@ -1,16 +1,23 @@
-import { Text,Surface, Divider,Icon} from 'react-native-paper'
-import {Image} from "react-native"
-import React from 'react'
-import CancelStreamButton from './cancelStreamButton'
-import { useNavigation } from '@react-navigation/native'
-import { useTheme,MD3Colors } from 'react-native-paper'
+import {Text, Surface, Divider, Icon} from 'react-native-paper';
+import {Image} from 'react-native';
+import React from 'react';
+import CancelStreamButton from './cancelStreamButton';
+import {useNavigation} from '@react-navigation/native';
+import {useTheme, MD3Colors} from 'react-native-paper';
 // import {Icon } from '@rneui/themed';
-const StreamCard = ({address,time,streamRate,type}) => {
-  const StreamType=["Send Stream","","Stream Cancelled "]
-  const navigation = useNavigation()
-  const theme=useTheme()
-  const StreamRateConverted=Math.round(((streamRate*((365/12) * 24 * 60 * 60*-1))/1e18 + Number.EPSILON) * 100) / 100
-  const currentDate = new Date(time*1000).toDateString()
+const StreamCard = ({address, time, streamRate, type,blockNo}) => {
+  const StreamType = ['Send Stream', '', 'Stream Cancelled '];
+  const navigation = useNavigation();
+  const theme = useTheme();
+  const StreamRateConverted =
+    Math.abs(
+      Math.round(
+        ((streamRate * ((365 / 12) * 24 * 60 * 60 )) / 1e18 +
+          Number.EPSILON) *
+          100,
+      ) / 100
+    )
+  const currentDate = new Date(time * 1000).toDateString();
   return (
     <Surface mode="flat" >
        
@@ -46,4 +53,4 @@ const StreamCard = ({address,time,streamRate,type}) => {
   )
 }
 
-export default StreamCard
+export default StreamCard;

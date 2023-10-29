@@ -43,7 +43,11 @@ const HomePageStack = ({color,navigation}) => {
       name="HomePage"
       component={HomePage}
     />
-    
+    <Stack.Screen
+      name="StreamDetails"
+      
+      component={StreamDetails}
+    />
     </Stack.Navigator>
   )
 }

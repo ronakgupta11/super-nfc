@@ -6,7 +6,7 @@ import { useNavigation,useRoute} from '@react-navigation/native';
 
 const StreamDetailCard = () => {
     const route=useRoute()
-    const { timeStamp,recipentAddress} = route.params;
+    const { timeStamp,recipentAddress,blockNumber} = route.params;
     const address=useAddress()
     const [data,setData]=useState()
     const [isCancelled,setIsCancelled]=useState(false)
@@ -27,16 +27,16 @@ const StreamDetailCard = () => {
         
             i++
         }
-      let j=0,ctr=0
-      while(j<finalQdata.length)
-      {
-          if(finalQdata[j].timestamp==timeStamp)
-          {
-              ctr++
-          }
-          console.log(finalQdata[j])
-          j++
-      }
+        let j=0,ctr=0   
+        while(j<finalQdata.length)
+        {
+            if(finalQdata[j].stream.createdAtBlockNumber==blockNumber)
+            {
+                ctr++
+            }
+            console.log(finalQdata[j])
+            j++
+        }
       if(ctr>1)
       {
         setIsCancelled(true)
@@ -84,7 +84,7 @@ const StreamDetailCard = () => {
              </Text>
          </Surface>
         }
-    
+      {!blockNumber&&<CancelStreamButton/>}
        
         </Surface>
     }
