@@ -16,7 +16,7 @@ const StreamScreen = ({navigation,route}) => {
 
 
  const calculateFlow = (amount)=>{
-  return Number(Number(amount) * (10**18) / ((365/12) * 24 * 60 * 60))
+  return Number(Math.floor(Number(Number(amount) * (10**18) / ((365/12) * 24 * 60 * 60))))
 }
   const handleSendStream = () => {
     navigation.navigate('ConfirmStream',{

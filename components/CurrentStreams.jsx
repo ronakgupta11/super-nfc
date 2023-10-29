@@ -36,7 +36,7 @@ const CurrentStreams = () => {
      
   },[])
   return (
-    <Surface>
+    <Surface mode='flat'>
        <Text
        variant='titleMedium'
         style={{textAlign:"left",margin:10,}}

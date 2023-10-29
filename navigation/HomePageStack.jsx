@@ -5,6 +5,7 @@ const Stack = createNativeStackNavigator();
 import HomePage from '../containers/screens/HomePage';
 import { Button, Icon, MD3Colors } from 'react-native-paper';
 import { useTheme } from 'react-native-paper';
+import StreamDetails from '../containers/screens/StreamDetails';
 
 const HomePageStack = ({color,navigation}) => {
   const theme = useTheme()

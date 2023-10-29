@@ -4,6 +4,7 @@ import React from 'react';
   import { ScrollView } from 'react-native';
 
 import HomeBanner from '../../components/homeBanner';
+import CurrentStreams from '../../components/CurrentStreams';
 
 
 const HomePage = ({route,navigation}) => {
@@ -31,6 +32,7 @@ style={{
   <Button onPress={()=> navigation.navigate("Profile")} mode ="contained">Recieve</Button>
 
 </Surface>
+<CurrentStreams/>
  
     </Surface> 
   )
