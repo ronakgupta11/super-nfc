@@ -6,7 +6,8 @@ const styles = StyleSheet.create({
   containerView: {
     alignItems: "center",
     backgroundColor:"white",
-    height:"100%"
+    height:"100%",
+    justifyContent:"center"
   },
   loginScreenContainer: {
     flex: 1,

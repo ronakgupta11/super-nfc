@@ -19,7 +19,7 @@ export default function LoginScreen() {
         <View style={styles.containerView}>
           
             <Image 
-             style={{width:200,marginTop:110}}
+             style={{height:100, width:100}}
             source={require('../../../assets/logo.png')}/>
             <Text style={styles.logoText}>Tap to Stream</Text>
             <Text
