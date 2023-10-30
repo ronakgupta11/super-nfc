@@ -26,11 +26,7 @@ const App = () => {
       <GestureHandlerRootView style={{ flex: 1 }}>
           <PaperProvider
            >    
-<BottomSheetModalProvider>
-
             <Index/>
-</BottomSheetModalProvider>
-
           </PaperProvider>
       </GestureHandlerRootView>
     </ThirdwebProvider>

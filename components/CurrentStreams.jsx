@@ -10,7 +10,7 @@ import { getQueryData } from '../queries/flowcreation';
 import { OngoingStreamData } from '../queries/flowcreation';
 const CurrentStreams = () => {
   const theme=useTheme()
-  const [queryData,setQueryData]=useState()
+  const [queryData,setQueryData]=useState([])
   const address =useAddress()
   // const ongoingData = [
   //   {
@@ -27,7 +27,7 @@ const CurrentStreams = () => {
   // ];
   useEffect(()=>{
     const getData=async ()=>{
-      const query=await OngoingStreamData()
+      const query=await OngoingStreamData(address)
        console.log(query.data)
       setQueryData(query.streams)
       
@@ -39,13 +39,13 @@ const CurrentStreams = () => {
     <Surface mode='flat'>
        <Text
        variant='titleMedium'
-        style={{textAlign:"left",margin:10,}}
-       >Activity History</Text>
+        style={{textAlign:"left",margin:10,marginTop:20}}
+       >Ongoing Streams</Text>
        <Divider/>
 <Surface mode = "flat">
 
     
-{queryData?.map(data => {
+{ queryData.length ?queryData.map(data => {
             return(
                 <StreamCard
                 key={data.createdAtTimestamp}
@@ -56,7 +56,12 @@ const CurrentStreams = () => {
               />
 
             )
-        })}
+        })
+    :
+    <Surface mode='flat' style={{justifyContent:"center",alignItems:"center",height:200}}>
+        <Text variant="bodyLarge" style={{color:"grey"}}>No Ongoing Streams</Text>
+      </Surface>
+    }
 </Surface>
       
 

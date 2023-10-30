@@ -1,10 +1,10 @@
 import OngoingStreams from "../components/OngoingStreams";
 
-   export const getQueryData=async (address,setQueryData)=>{
+   export const getQueryData=async (address)=>{
     
     const graphqlQuery = `
     query {
-      flowUpdatedEvents(where: { sender:"0x18029ED948bed2FEBb0689EcefdFF51259D7e7F0"}) {
+      flowUpdatedEvents(where: { sender:"${address}"}) {
         timestamp
         token
         type
@@ -14,6 +14,8 @@ import OngoingStreams from "../components/OngoingStreams";
           streamedUntilUpdatedAt
           createdAtBlockNumber
         }
+    receiver
+    
       }
     }
   `;
@@ -33,10 +35,10 @@ import OngoingStreams from "../components/OngoingStreams";
   
   }
 
- export const OngoingStreamData = async ()=>{
+ export const OngoingStreamData = async (address)=>{
   const graphqlQuery= `query MyQuery {
     streams(
-      where: {sender: "0x18029ed948bed2febb0689ecefdff51259d7e7f0", currentFlowRate_gt: "0"}
+      where: {sender: "${address}", currentFlowRate_gt: "0"}
     ) {
       currentFlowRate
       token {
