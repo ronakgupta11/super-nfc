@@ -6,7 +6,7 @@ import { useAddress } from '@thirdweb-dev/react-native';
 import StreamDetailCard from '../../components/StreamDetailCard';
 const StreamDetails = () => {
     
-    const address=useAddress()
+
 
   return (
     <Surface>

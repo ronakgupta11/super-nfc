@@ -3,7 +3,7 @@ import  {
   BottomSheetModal,
 } from '@gorhom/bottom-sheet';
 import {Text, Button,TextInput, useTheme, Surface} from 'react-native-paper';
-import {View, Image, ScrollView, KeyboardAvoidingView} from 'react-native';
+import { Image,  KeyboardAvoidingView} from 'react-native';
 
 const StreamScreen = ({navigation,route}) => {
   const [address, setAddress] = useState("");

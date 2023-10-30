@@ -13,7 +13,7 @@ const OngoingStreams = () => {
   const [queryData,setQueryData]=useState([])
   useEffect(()=>{
     const getData=async ()=>{
-      //0x18029ed948bed2febb0689ecefdff51259d7e7f0
+
       const query=await getQueryData(address)
        console.log(query.flowUpdatedEvents)
       setQueryData(query.flowUpdatedEvents)

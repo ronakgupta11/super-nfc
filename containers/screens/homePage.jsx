@@ -1,7 +1,7 @@
 
 import React from 'react';
-  import{ Button,Surface, Text} from 'react-native-paper';
-  import { ScrollView } from 'react-native';
+  import{ Button,Surface} from 'react-native-paper';
+
 
 import HomeBanner from '../../components/homeBanner';
 import CurrentStreams from '../../components/CurrentStreams';

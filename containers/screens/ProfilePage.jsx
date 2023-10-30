@@ -5,8 +5,8 @@ import { Text ,Surface, Button,Divider} from 'react-native-paper'
 import QRCode from 'react-native-qrcode-svg';
 import { useAddress } from '@thirdweb-dev/react-native';
 import {
-  ConnectWallet
-,useDisconnect
+
+useDisconnect
 } from '@thirdweb-dev/react-native';
 import { ScrollView } from 'react-native';
 

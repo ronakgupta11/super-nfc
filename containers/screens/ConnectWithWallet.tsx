@@ -5,7 +5,7 @@ import {
   import React,{useEffect,useState} from 'react';
   import {StyleSheet, Text, useColorScheme, View,Button} from 'react-native';
   import  nfcManager  from 'react-native-nfc-manager';
-import { colors } from 'react-native-elements';
+
   
 
   const ConnectWithWallet = () => {
@@ -16,13 +16,7 @@ import { colors } from 'react-native-elements';
 
   const AppInner = () => {
 
-    const isDarkMode = useColorScheme() === 'dark';
-  
-    const textStyles = {
-      color: "black",
-      ...styles.heading,
-    };
-  
+
     const customDarkTheme:any = darkTheme({
         buttonBackgroundColor:"black",
         buttonTextColor:"white"
@@ -45,7 +39,7 @@ import { colors } from 'react-native-elements';
         <ConnectWallet theme={customDarkTheme} />
         <Text
                style={{color:"red",margin:10}}
-              >{hasNfc?"Hello NFC":"Your Device Dosent Support NFC"}</Text>
+              >{hasNfc?"NFC Supported, You can tap to stream":"Your Device Dosent Support NFC"}</Text>
       </View> 
           )
 
