@@ -7,13 +7,14 @@ import { useAddress } from '@thirdweb-dev/react-native';
 import { View } from 'react-native';
 import StreamCard from './StreamCard'
 import { getQueryData } from '../queries/flowcreation';
+import { ScrollView } from 'react-native-gesture-handler';
 const OngoingStreams = () => {
   const address=useAddress()
   const [queryData,setQueryData]=useState([])
   useEffect(()=>{
     const getData=async ()=>{
       //0x18029ed948bed2febb0689ecefdff51259d7e7f0
-      const query=await getQueryData("0x18029ed948bed2febb0689ecefdff51259d7e7f0")
+      const query=await getQueryData(address)
        console.log(query.flowUpdatedEvents)
       setQueryData(query.flowUpdatedEvents)
     }
@@ -21,15 +22,10 @@ const OngoingStreams = () => {
     
   },[])
   return (
-    <Surface>
-       <Text
-       variant='titleMedium'
-        style={{textAlign:"left",margin:10,}}
-       >Activity History</Text>
-       <Divider/>
+
 <Surface mode = "flat">
 
-    
+
 {queryData.length? queryData.map(data => {
             return(
                 <StreamCard
@@ -50,7 +46,8 @@ const OngoingStreams = () => {
         <Text style={{color:"grey"}}>No Activity</Text>
       </Surface>
       }
-</Surface>
+
+
       
 
     </Surface>

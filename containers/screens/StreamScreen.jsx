@@ -40,10 +40,10 @@ const StreamScreen = ({navigation,route}) => {
       style={{
         flex:1,
         
-        justifyContent:"space-evenly",
+       
         padding:8,
       }}>
-        <KeyboardAvoidingView>
+        <KeyboardAvoidingView keyboardVerticalOffset={40} behavior='position'>
 
           <Text variant='headlineMedium'
             style={{

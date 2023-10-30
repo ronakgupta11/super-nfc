@@ -120,7 +120,10 @@ const App = () => {
       <GestureHandlerRootView style={{ flex: 1 }}>
           <PaperProvider theme={paperTheme}
            >    
+           <BottomSheetModalProvider>
+
             <Index/>
+           </BottomSheetModalProvider>
           </PaperProvider>
       </GestureHandlerRootView>
     </ThirdwebProvider>

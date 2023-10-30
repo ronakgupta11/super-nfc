@@ -1,18 +1,18 @@
 
-import ConnectWithWallet from './ConnectWithWallet'
 import React from 'react'
 import OngoingStreams from '../../components/OngoingStreams'
-import { Text ,Surface, Button} from 'react-native-paper'
+import { Text ,Surface, Button,Divider} from 'react-native-paper'
 import QRCode from 'react-native-qrcode-svg';
 import { useAddress } from '@thirdweb-dev/react-native';
 import {
-  ConnectWallet,
-  darkTheme
+  ConnectWallet
+,useDisconnect
 } from '@thirdweb-dev/react-native';
 import { ScrollView } from 'react-native';
 
 const ProfilePage = ({navigation}) => {
   const address = useAddress()
+  const disconnect = useDisconnect()
   return (
     <Surface mode = "flat" style = {{ flex:1, padding:16}}>
 
@@ -20,7 +20,8 @@ const ProfilePage = ({navigation}) => {
       <Text variant = "headlineMedium" style = {{textAlign: "center"}}> Welcome</Text>
 <Surface mode = "flat" style = {{ alignItems:"center",margin:8}}>
 
-      <ConnectWallet/>
+      {/* <ConnectWallet/> */}
+      <Button onPress={disconnect}>Disconnect</Button>
 </Surface>
 <Surface mode = "flat"  style={{margin:8,alignItems:"center"}}>
 
@@ -39,9 +40,18 @@ const ProfilePage = ({navigation}) => {
    </Surface>
    <Surface>
     </Surface>
-    <ScrollView style={{ margin:10}}>
+    <Text
+       variant='titleMedium'
+        style={{textAlign:"left",margin:10,}}
+       >Activity History</Text>
+       <Divider/>
+       <ScrollView showsVerticalScrollIndicator={false} style={{
+        margin:10
+       }}>
+
 <OngoingStreams/>
-  </ScrollView>
+       </ScrollView>
+
     </Surface>
         // <ConnectWithWallet />
     
