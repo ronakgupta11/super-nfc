@@ -73,7 +73,8 @@ const StreamScreen = ({navigation,route}) => {
             placeholder="Reciever Wallet Adress"
             mode='outlined'
             style={{marginBottom: 0,
-            margin:10
+            margin:10,
+            backgroundColor:"#ffffff"
           }}
           />
           <Text
@@ -115,7 +116,7 @@ const StreamScreen = ({navigation,route}) => {
             value={streamRate}
             onChangeText={setStreamRate}
             placeholder="0.0"
-            style={{margin:10}}
+            style={{margin:10,backgroundColor:"#ffffff"}}
           />
           <Button
             mode='contained'
@@ -190,12 +191,13 @@ const StreamScreen = ({navigation,route}) => {
       label="Amount"
       value={amount}
       style={{
-        width:"60%"
+        width:"60%",
+        backgroundColor:"#ffffff"
       }}
       onChangeText={amount => setAmount(amount)}
       
       />
-      <Text>/Month</Text>
+      <Text>G$/Month</Text>
       </Surface>
       <Button style={{
         margin:4,

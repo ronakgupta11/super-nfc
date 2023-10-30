@@ -11,9 +11,11 @@ import ProfilePageStack from './ProfilePageStack';
 export default function MyTabs() {
   return (
     <Tab.Navigator
+
     tabbBar={({ navigation, state, descriptors, insets }) => (
       <BottomNavigation.Bar
         navigationState={state}
+        
        safeAreaInsets={insets}
         onTabPress={({ route, preventDefault }) => {
           const event = navigation.emit({
