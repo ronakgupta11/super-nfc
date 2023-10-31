@@ -26,13 +26,14 @@ const CurrentStreams = () => {
    
   // ];
   useEffect(()=>{
-    const getData=async ()=>{
-      const query=await OngoingStreamData(address)
-       console.log(query.data)
-      setQueryData(query.streams)
-      
-    }
-    getData()
+    setInterval(()=>{
+      const getData=async ()=>{
+        const query=await OngoingStreamData(address)
+        //  console.log(query.streams)
+        setQueryData(query.streams)
+      }
+      getData()
+    },1000)
      
   },[])
   return (

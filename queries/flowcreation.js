@@ -20,7 +20,7 @@ import OngoingStreams from "../components/OngoingStreams";
     }
   `;
   const apiUrl = 'https://api.thegraph.com/subgraphs/name/superfluid-finance/protocol-v1-celo-mainnet';
-  console.log("querying")
+  // console.log("querying")
    const result = await fetch(apiUrl, {
     method: 'POST',
     headers: {
@@ -30,7 +30,7 @@ import OngoingStreams from "../components/OngoingStreams";
   })
   
    const res= await result.json()
-   
+  
    return res?.data
   
   }
@@ -54,6 +54,7 @@ import OngoingStreams from "../components/OngoingStreams";
     }
   }`
   const apiurl="https://api.thegraph.com/subgraphs/name/superfluid-finance/protocol-v1-celo-mainnet"
+
   const result = await fetch(apiurl, {
     method: 'POST',
     headers: {
@@ -61,9 +62,9 @@ import OngoingStreams from "../components/OngoingStreams";
     },
     body: JSON.stringify({ query: graphqlQuery }),
   })
-  
+  // console.log("initial result",await result.json())
    const res= await result.json()
-
+  //  console.log("this is result",res)
    return res?.data
   
   }

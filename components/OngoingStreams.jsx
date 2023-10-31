@@ -12,13 +12,18 @@ const OngoingStreams = () => {
   const address=useAddress()
   const [queryData,setQueryData]=useState([])
   useEffect(()=>{
+   setInterval(()=>
+   {
+
     const getData=async ()=>{
 
       const query=await getQueryData(address)
-       console.log(query.flowUpdatedEvents)
+      //  console.log(query.flowUpdatedEvents)
+       const dataArray=query.flowUpdatedEvents.reverse()
       setQueryData(query.flowUpdatedEvents)
     }
     getData()
+   },1000)
     
   },[])
   return (
